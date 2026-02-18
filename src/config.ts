@@ -266,21 +266,9 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					url: "https://github.com/Kirayu173",
 					external: true,
 					icon: "fa7-brands:github",
-				},
-				{
-					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
-					external: true,
-					icon: "fa7-brands:bilibili",
-				},
-				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
-					external: true,
-					icon: "mdi:git",
 				},
 			],
 		},
@@ -356,22 +344,17 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.webp", // 閻╃顕禍?/src 閻╊喖缍嶉妴鍌氼洤閺嬫粈浜?'/' 瀵偓婢惰揪绱濋崚娆戞祲鐎甸€涚艾 /public 閻╊喖缍?
-	name: "まつざか ゆき",
-	bio: "世界は大きい、君は行かなければならない",
+	name: "Kirayu",
+	bio: "with his agent , Axis",
 	typewriter: {
 		enable: true, // 閸氼垳鏁ゆ稉顏冩眽缁犫偓娴犲澧︾€涙婧€閺佸牊鐏?
 		speed: 80, // 閹垫挸鐡ч柅鐔峰閿涘牊顕犵粔鎺炵礆
 	},
 	links: [
 		{
-			name: "Bilibili",
-			icon: "fa7-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
-		},
-		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			url: "https://github.com/Kirayu173",
 		},
 	],
 };
