@@ -38,7 +38,6 @@ export const siteConfig: SiteConfig = {
 	// 閻楃澹婃い鐢告桨瀵偓閸忔娊鍘ょ純顕嗙礄閸忔娊妫撮張顏冨▏閻劎娈戞い鐢告桨閺堝濮禍搴㈠絹閸?SEO閿涘苯鍙ч梻顓炴倵鐠囩柉顔囧妤€婀?navbarConfig 娑擃厾些闂勩倕顕惔鏃堟懠閹恒儻绱?
 	featurePages: {
 		anime: true, // 閻ｎ亜澧芥い鐢告桨瀵偓閸?
-		diary: false, // 閺冦儴顔囨い鐢告桨瀵偓閸?
 		friends: true, // 閸欏鎽兼い鐢告桨瀵偓閸?
 		projects: true, // 妞ゅ湱娲版い鐢告桨瀵偓閸?
 		skills: true, // 閹垛偓閼充粙銆夐棃銏犵磻閸?

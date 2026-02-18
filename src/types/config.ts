@@ -60,7 +60,6 @@ export type SiteConfig = {
 	// 鐗硅壊椤甸潰寮€鍏抽厤缃?
 	featurePages: {
 		anime: boolean; // 鐣墽椤甸潰寮€鍏?
-		diary: boolean; // 鏃ヨ椤甸潰寮€鍏?
 		friends: boolean; // 鍙嬮摼椤甸潰寮€鍏?
 		projects: boolean; // 椤圭洰椤甸潰寮€鍏?
 		skills: boolean; // 鎶€鑳介〉闈㈠紑鍏?
@@ -201,11 +200,10 @@ export enum LinkPreset {
 	About = 2,
 	Friends = 3,
 	Anime = 4,
-	Diary = 5,
-	Albums = 6,
-	Projects = 7,
-	Skills = 8,
-	Timeline = 9,
+	Albums = 5,
+	Projects = 6,
+	Skills = 7,
+	Timeline = 8,
 }
 
 export type NavBarLink = {

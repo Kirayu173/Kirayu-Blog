@@ -56,7 +56,6 @@ enum I18nKey {
 	friendsCopySuccess = "friendsCopySuccess",
 	friendsTags = "friendsTags",
 	anime = "anime",
-	diary = "diary",
 
 	// 番剧页面
 	animeTitle = "animeTitle",
@@ -77,13 +76,6 @@ enum I18nKey {
 	animeConfigBangumi = "animeConfigBangumi",
 
 	// 短文页面
-	diarySubtitle = "diarySubtitle",
-	diaryCount = "diaryCount",
-	diaryReply = "diaryReply",
-	diaryTips = "diaryTips",
-	diaryMinutesAgo = "diaryMinutesAgo",
-	diaryHoursAgo = "diaryHoursAgo",
-	diaryDaysAgo = "diaryDaysAgo",
 
 	// 404页面
 	notFound = "notFound",

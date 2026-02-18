@@ -57,9 +57,7 @@ export const ja: Translation = {
 	[Key.author]: "著者",
 	[Key.publishedAt]: "公開日",
 	[Key.license]: "ライセンス",
-	[Key.anime]: "視聴したアニメ",
-	[Key.diary]: "日記",
-
+	[Key.anime]: "視聴したアニメ",
 	// アニメページ
 	[Key.animeTitle]: "視聴したアニメ",
 	[Key.animeSubtitle]: "アニメの旅の記録です",
@@ -83,15 +81,7 @@ export const ja: Translation = {
 	[Key.animeConfigBangumi]:
 		"src/config.tsファイルでBangumi userIdを設定してください",
 
-	// 日記ページ
-	[Key.diarySubtitle]: "いつでも、どこでも生活を共有",
-	[Key.diaryCount]: "件の日記のエントリー",
-	[Key.diaryReply]: "返信",
-	[Key.diaryTips]: "最新の30件の日記のエントリーのみを表示",
-	[Key.diaryMinutesAgo]: "分前",
-	[Key.diaryHoursAgo]: "時間前",
-	[Key.diaryDaysAgo]: "日前",
-
+	// 日記ページ
 	// 404ページ
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "ページが見つかりません",

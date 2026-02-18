@@ -57,9 +57,7 @@ export const en: Translation = {
 	[Key.author]: "Author",
 	[Key.publishedAt]: "Published at",
 	[Key.license]: "License",
-	[Key.anime]: "Anime",
-	[Key.diary]: "Diary",
-
+	[Key.anime]: "Anime",
 	// Anime Page
 	[Key.animeTitle]: "My Anime List",
 	[Key.animeSubtitle]: "Record my anime journey",
@@ -82,15 +80,6 @@ export const en: Translation = {
 		"Please set your Bilibili vmid in the src/config.ts file",
 	[Key.animeConfigBangumi]:
 		"Please set your Bangumi userId in the src/config.ts file",
-
-	// Diary Page
-	[Key.diarySubtitle]: "Share life, anytime, anywhere",
-	[Key.diaryCount]: "diary entries",
-	[Key.diaryReply]: "Reply",
-	[Key.diaryTips]: "Only show the latest 30 diary entries",
-	[Key.diaryMinutesAgo]: "minutes ago",
-	[Key.diaryHoursAgo]: "hours ago",
-	[Key.diaryDaysAgo]: "days ago",
 
 	// 404 Page
 	[Key.notFound]: "404",

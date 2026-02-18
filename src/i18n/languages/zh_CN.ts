@@ -57,9 +57,7 @@ export const zh_CN: Translation = {
 	[Key.author]: "作者",
 	[Key.publishedAt]: "发布于",
 	[Key.license]: "许可协议",
-	[Key.anime]: "追番",
-	[Key.diary]: "日记",
-
+	[Key.anime]: "追番",
 	// 番剧页面
 	[Key.animeTitle]: "我的追番记录",
 	[Key.animeSubtitle]: "记录我的二次元之旅",
@@ -80,15 +78,7 @@ export const zh_CN: Translation = {
 	[Key.animeConfigBangumi]:
 		"请在 src/config.ts 文件中设置您的 Bangumi userId",
 
-	// 短文页面
-	[Key.diarySubtitle]: "随时随地，分享生活",
-	[Key.diaryCount]: "条短文",
-	[Key.diaryReply]: "回复",
-	[Key.diaryTips]: "只展示最近30条日记",
-	[Key.diaryMinutesAgo]: "分钟前",
-	[Key.diaryHoursAgo]: "小时前",
-	[Key.diaryDaysAgo]: "天前",
-
+	// 短文页面
 	// 404页面
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "页面未找到",
