@@ -10,6 +10,7 @@ import type {
  */
 export const WIDGET_COMPONENT_MAP = {
 	profile: "../components/widget/Profile.astro",
+	"profile-no-links": "../components/widget/Profile.astro",
 	categories: "../components/widget/Categories.astro",
 	tags: "../components/widget/Tags.astro",
 	toc: "../components/widget/TOC.astro",

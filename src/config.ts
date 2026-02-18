@@ -1,4 +1,4 @@
-import type {
+﻿import type {
 	CommentConfig,
 	ExpressiveCodeConfig,
 	FooterConfig,
@@ -15,107 +15,107 @@ import type {
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
-// 移除i18n导入以避免循环依赖
+// 缁夊娅巌18n鐎电厧鍙嗘禒銉╀缉閸忓秴鎯婇悳顖欑贩鐠?
 
-// 定义站点语言
-const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
-const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
+// 鐎规矮绠熺粩娆戝仯鐠囶叀鈻?
+const SITE_LANG = "zh_CN"; // 鐠囶叀鈻堟禒锝囩垳閿涘奔绶ユ俊鍌︾窗'en', 'zh_CN', 'ja' 缁涘鈧?
+const SITE_TIMEZONE = 8; //鐠佸墽鐤嗘担鐘垫畱缂冩垹鐝弮璺哄隘 from -12 to 12 default in UTC+8
 export const siteConfig: SiteConfig = {
-	title: "Mizuki",
-	subtitle: "一个简洁优雅的个人博客",
-	siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
-	siteStartDate: "2025-01-01", // 站点开始运行日期，用于站点统计组件计算运行天数
+	title: "Kirayu-Blog",
+	subtitle: "Maintained by Axis",
+	siteURL: "https://mizuki.mysqil.com/", // 鐠囬攱娴涢幑顫礋娴ｇ姷娈戠粩娆戝仯URL閿涘奔浜掗弬婊勬浆缂佹挸鐔?
+	siteStartDate: "2025-01-01", // 缁旀瑧鍋ｅ鈧慨瀣箥鐞涘本妫╅張鐕傜礉閻劋绨粩娆戝仯缂佺喕顓哥紒鍕鐠侊紕鐣绘潻鎰攽婢垛晜鏆?
 
 	timeZone: SITE_TIMEZONE,
 
 	lang: SITE_LANG,
 
 	themeColor: {
-		hue: 60, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
-		fixed: false, // 对访问者隐藏主题色选择器
+		hue: 60, // 娑撳顣介懝鑼畱姒涙顓婚懝鑼祲閿涘矁瀵栭崶缈犵矤 0 閸?360閵嗗倷绶ユ俊鍌︾窗缁俱垼澹婇敍?閿涘矂娼氶懝璇х窗200閿涘矁鎽戠紒鑳閿?50閿涘瞼鐭囬懝璇х窗345
+		fixed: false, // 鐎电顔栭梻顔库偓鍛存閽樺繋瀵屾０妯垮闁瀚ㄩ崳?
 	},
 
-	// 特色页面开关配置（关闭未使用的页面有助于提升 SEO，关闭后请记得在 navbarConfig 中移除对应链接）
+	// 閻楃澹婃い鐢告桨瀵偓閸忔娊鍘ょ純顕嗙礄閸忔娊妫撮張顏冨▏閻劎娈戞い鐢告桨閺堝濮禍搴㈠絹閸?SEO閿涘苯鍙ч梻顓炴倵鐠囩柉顔囧妤€婀?navbarConfig 娑擃厾些闂勩倕顕惔鏃堟懠閹恒儻绱?
 	featurePages: {
-		anime: true, // 番剧页面开关
-		diary: true, // 日记页面开关
-		friends: true, // 友链页面开关
-		projects: true, // 项目页面开关
-		skills: true, // 技能页面开关
-		timeline: true, // 时间线页面开关
-		albums: true, // 相册页面开关
-		devices: true, // 设备页面开关
+		anime: true, // 閻ｎ亜澧芥い鐢告桨瀵偓閸?
+		diary: true, // 閺冦儴顔囨い鐢告桨瀵偓閸?
+		friends: true, // 閸欏鎽兼い鐢告桨瀵偓閸?
+		projects: true, // 妞ゅ湱娲版い鐢告桨瀵偓閸?
+		skills: true, // 閹垛偓閼充粙銆夐棃銏犵磻閸?
+		timeline: true, // 閺冨爼妫跨痪鍧椼€夐棃銏犵磻閸?
+		albums: true, // 閻╃鍞芥い鐢告桨瀵偓閸?
+		devices: true, // 鐠佹儳顦い鐢告桨瀵偓閸?
 	},
 
-	// 顶栏标题配置
+	// 妞よ埖鐖弽鍥暯闁板秶鐤?
 	navbarTitle: {
-		// 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
+		// 閺勫墽銇氬Ο鈥崇础閿?text-icon" 閺勫墽銇氶崶鐐垼+閺傚洦婀伴敍?logo" 娴犲懏妯夌粈绡杘go
 		mode: "text-icon",
-		// 顶栏标题文本
+		// 妞よ埖鐖弽鍥暯閺傚洦婀?
 		text: "Kirayu",
-		// 设为空字符串可仅显示文字，不显示图标
+		// 鐠佸彞璐熺粚鍝勭摟缁楋缚瑕嗛崣顖欑矌閺勫墽銇氶弬鍥х摟閿涘奔绗夐弰鍓с仛閸ョ偓鐖?
 		icon: "",
-		// 网站Logo图片路径
+		// 缂冩垹鐝疞ogo閸ュ墽澧栫捄顖氱窞
 		logo: "assets/home/default-logo.png",
 	},
 
-	// 页面自动缩放配置
+	// 妞ょ敻娼伴懛顏勫З缂傗晜鏂侀柊宥囩枂
 	pageScaling: {
-		enable: true, // 是否开启自动缩放
-		targetWidth: 2000, // 目标宽度，低于此宽度时开始缩放
+		enable: true, // 閺勵垰鎯佸鈧崥顖濆殰閸斻劎缂夐弨?
+		targetWidth: 2000, // 閻╊喗鐖ｇ€硅棄瀹抽敍灞肩秵娴滃孩顒濈€硅棄瀹抽弮璺虹磻婵缂夐弨?
 	},
 
 	bangumi: {
-		userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
-		fetchOnDev: false, // 是否在开发环境下获取 Bangumi 数据（默认 false），获取前先执行 pnpm build 构建 json 文件
+		userId: "your-bangumi-id", // 閸︺劍顒濇径鍕啎缂冾喕缍橀惃鍑歛ngumi閻劍鍩汭D閿涘苯褰叉禒銉啎缂冾喕璐?"sai" 濞村鐦?
+		fetchOnDev: false, // 閺勵垰鎯侀崷銊ョ磻閸欐垹骞嗘晶鍐х瑓閼惧嘲褰?Bangumi 閺佺増宓侀敍鍫ョ帛鐠?false閿涘绱濋懢宄板絿閸撳秴鍘涢幍褑顢?pnpm build 閺嬪嫬缂?json 閺傚洣娆?
 	},
 
 	bilibili: {
-		vmid: "your-bilibili-vmid", // 在此处设置你的Bilibili用户ID (uid)，例如 "1129280784"
-		fetchOnDev: false, // 是否在开发环境下获取 Bilibili 数据（默认 false）
-		coverMirror: "", // 封面图片镜像源（可选，如果需要使用镜像源，例如 "https://images.weserv.nl/?url="）
-		useWebp: true, // 是否使用WebP格式（默认 true）
+		vmid: "your-bilibili-vmid", // 閸︺劍顒濇径鍕啎缂冾喕缍橀惃鍑歩libili閻劍鍩汭D (uid)閿涘奔绶ユ俊?"1129280784"
+		fetchOnDev: false, // 閺勵垰鎯侀崷銊ョ磻閸欐垹骞嗘晶鍐х瑓閼惧嘲褰?Bilibili 閺佺増宓侀敍鍫ョ帛鐠?false閿?
+		coverMirror: "", // 鐏忎線娼伴崶鍓у闂€婊冨剼濠ф劧绱欓崣顖炩偓澶涚礉婵″倹鐏夐棁鈧憰浣峰▏閻劑鏆呴崓蹇旂爱閿涘奔绶ユ俊?"https://images.weserv.nl/?url="閿?
+		useWebp: true, // 閺勵垰鎯佹担璺ㄦ暏WebP閺嶇厧绱￠敍鍫ョ帛鐠?true閿?
 
-		// bilibili 观看进度配置说明(可选，如需配置仔细阅读):
-		// 1. 本地开发：请在 .env 文件中填写 BILI_SESSDATA=your_SESSDATA
-		// 2. 远程构建：请在 GitHub 仓库 Settings -> Secrets 中添加 BILI_SESSDATA
-		// 注意：SESSDATA 为账号凭证，为防止泄露，切记不可使用硬编码。
-		// 安全提示：如 SESSDATA 已泄露，请打开 B站手机端 —— 我的 —— 设置 —— 安全隐私 —— 登陆设备管理 —— 一键退登，销毁已泄露的账号凭证
+		// bilibili 鐟欏倻婀呮潻娑樺闁板秶鐤嗙拠瀛樻(閸欘垶鈧绱濇俊鍌炴付闁板秶鐤嗘禒鏃傜矎闂冨懓顕?:
+		// 1. 閺堫剙婀村鈧崣鎴窗鐠囧嘲婀?.env 閺傚洣娆㈡稉顓烇綖閸?BILI_SESSDATA=your_SESSDATA
+		// 2. 鏉╂粎鈻奸弸鍕紦閿涙俺顕崷?GitHub 娴犳挸绨?Settings -> Secrets 娑擃厽鍧婇崝?BILI_SESSDATA
+		// 濞夈劍鍓伴敍姝婨SSDATA 娑撻缚澶勯崣宄板殶鐠囦緤绱濇稉娲Щ濮濄垺纭犻棁璇х礉閸掑洩顔囨稉宥呭讲娴ｈ法鏁ょ涵顒傜椽閻降鈧?
+		// 鐎瑰鍙忛幓鎰仛閿涙艾顩?SESSDATA 瀹稿弶纭犻棁璇х礉鐠囬攱澧﹀鈧?B缁旀瑦澧滈張铏诡伂 閳ユ柡鈧?閹存垹娈?閳ユ柡鈧?鐠佸墽鐤?閳ユ柡鈧?鐎瑰鍙忛梾鎰潌 閳ユ柡鈧?閻у妾扮拋鎯ь槵缁狅紕鎮?閳ユ柡鈧?娑撯偓闁款噣鈧偓閻т紮绱濋柨鈧В浣稿嚒濞夊嫰婀堕惃鍕閸欏嘲鍤熺拠?
 	},
 
 	anime: {
-		mode: "local", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置，"bilibili" 使用Bilibili API
+		mode: "local", // 閻ｎ亜澧芥い鐢告桨濡€崇础閿?bangumi" 娴ｈ法鏁angumi API閿?local" 娴ｈ法鏁ら張顒€婀撮柊宥囩枂閿?bilibili" 娴ｈ法鏁ilibili API
 	},
 
-	// 文章列表布局配置
+	// 閺傚洨鐝烽崚妤勩€冪敮鍐ㄧ湰闁板秶鐤?
 	postListLayout: {
-		// 默认布局模式："list" 列表模式（单列布局），"grid" 网格模式（双列布局）
-		// 注意：如果侧边栏配置启用了"both"双侧边栏，则无法使用文章列表"grid"网格（双列）布局
+		// 姒涙顓荤敮鍐ㄧ湰濡€崇础閿?list" 閸掓銆冨Ο鈥崇础閿涘牆宕熼崚妤€绔风仦鈧敍澶涚礉"grid" 缂冩垶鐗稿Ο鈥崇础閿涘牆寮婚崚妤€绔风仦鈧敍?
+		// 濞夈劍鍓伴敍姘洤閺嬫粈鏅舵潏瑙勭埉闁板秶鐤嗛崥顖滄暏娴?both"閸欏奔鏅舵潏瑙勭埉閿涘苯鍨弮鐘崇《娴ｈ法鏁ら弬鍥╃彿閸掓銆?grid"缂冩垶鐗搁敍鍫濆蓟閸掓绱氱敮鍐ㄧ湰
 		defaultMode: "list",
-		// 是否允许用户切换布局
+		// 閺勵垰鎯侀崗浣筋啅閻劍鍩涢崚鍥ㄥ床鐢啫鐪?
 		allowSwitch: false,
 	},
 
-	// 标签样式配置
+	// 閺嶅洨顒烽弽宄扮础闁板秶鐤?
 	tagStyle: {
-		// 是否使用新样式（悬停高亮样式）还是旧样式（外框常亮样式）
+		// 閺勵垰鎯佹担璺ㄦ暏閺傜増鐗卞蹇ョ礄閹剙浠犳妯瑰瘨閺嶅嘲绱￠敍澶庣箷閺勵垱妫弽宄扮础閿涘牆顦诲鍡楃埗娴滎喗鐗卞蹇ョ礆
 		useNewStyle: false,
 	},
 
-	// 壁纸模式配置
+	// 婢逛胶鐒婂Ο鈥崇础闁板秶鐤?
 	wallpaperMode: {
-		// 默认壁纸模式：banner=顶部横幅，fullscreen=全屏壁纸，none=无壁纸
+		// 姒涙顓绘竟浣虹剨濡€崇础閿涙瓬anner=妞ゅ爼鍎村Ο顏勭畽閿涘畺ullscreen=閸忋劌鐫嗘竟浣虹剨閿涘one=閺冪姴顥嗙痪?
 		defaultMode: "banner",
-		// 整体布局方案切换按钮显示设置（默认："desktop"）
-		// "off" = 不显示
-		// "mobile" = 仅在移动端显示
-		// "desktop" = 仅在桌面端显示
-		// "both" = 在所有设备上显示
+		// 閺佺繝缍嬬敮鍐ㄧ湰閺傝顢嶉崚鍥ㄥ床閹稿鎸抽弰鍓с仛鐠佸墽鐤嗛敍鍫ョ帛鐠併倧绱?desktop"閿?
+		// "off" = 娑撳秵妯夌粈?
+		// "mobile" = 娴犲懎婀粔璇插З缁旑垱妯夌粈?
+		// "desktop" = 娴犲懎婀宀勬桨缁旑垱妯夌粈?
+		// "both" = 閸︺劍澧嶉張澶庮啎婢跺洣绗傞弰鍓с仛
 		showModeSwitchOnMobile: "desktop",
 	},
 
 	banner: {
-		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
+		// 閺€顖涘瘮閸楁洖绱堕崶鍓у閹存牕娴橀悧鍥ㄦ殶缂佸嫸绱濊ぐ鎾存殶缂佸嫰鏆辨惔?> 1 閺冩儼鍤滈崝銊ユ儙閻劏鐤嗛幘?
 		src: {
 			desktop: [
 				"/assets/desktop-banner/1.webp",
@@ -124,7 +124,7 @@ export const siteConfig: SiteConfig = {
 				"/assets/desktop-banner/4.webp",
 				"/assets/desktop-banner/5.webp",
 				"/assets/desktop-banner/6.webp",
-			], // 桌面横幅图片
+			], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
 			mobile: [
 				"/assets/mobile-banner/1.webp",
 				"/assets/mobile-banner/2.webp",
@@ -132,33 +132,33 @@ export const siteConfig: SiteConfig = {
 				"/assets/mobile-banner/4.webp",
 				"/assets/mobile-banner/5.webp",
 				"/assets/mobile-banner/6.webp",
-			], // 移动横幅图片
-		}, // 使用本地横幅图片
+			], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
+		}, // 娴ｈ法鏁ら張顒€婀村Ο顏勭畽閸ュ墽澧?
 
-		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
+		position: "center", // 缁涘鎮撴禍?object-position閿涘奔绮庨弨顖涘瘮 'top', 'center', 'bottom'閵嗗倿绮拋銈勮礋 'center'
 
 		carousel: {
-			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
-			interval: 1.5, // 轮播间隔时间（秒）
+			enable: true, // 娑?true 閺冭绱版稉鍝勵樋瀵姴娴橀悧鍥ф儙閻劏鐤嗛幘顓溾偓鍌欒礋 false 閺冭绱版禒搴㈡殶缂佸嫪鑵戦梾蹇旀簚閺勫墽銇氭稉鈧鐘叉禈閻?
+			interval: 1.5, // 鏉烆喗鎸遍梻鎾閺冨爼妫块敍鍫㈩潡閿?
 		},
 
 		waves: {
-			enable: true, // 是否启用水波纹效果（注意：此功能性能开销较大）
-			performanceMode: false, // 性能模式：减少动画复杂度(性能提升40%)
-			mobileDisable: false, // 移动端禁用
+			enable: true, // 閺勵垰鎯侀崥顖滄暏濮樺瓨灏濈痪瑙勬櫏閺嬫粣绱欏▔銊﹀壈閿涙碍顒濋崝鐔诲厴閹嗗厴瀵偓闁库偓鏉堝啫銇囬敍?
+			performanceMode: false, // 閹嗗厴濡€崇础閿涙艾鍣虹亸鎴濆З閻㈣顦查弶鍌氬(閹嗗厴閹绘劕宕?0%)
+			mobileDisable: false, // 缁夎濮╃粩顖滎洣閻?
 		},
 
-		// PicFlow API支持(智能图片API)
+		// PicFlow API閺€顖涘瘮(閺呴缚鍏橀崶鍓уAPI)
 		imageApi: {
-			enable: false, // 启用图片API
-			url: "http://domain.com/api_v2.php?format=text&count=4", // API地址，返回每行一个图片链接的文本
+			enable: false, // 閸氼垳鏁ら崶鍓уAPI
+			url: "http://domain.com/api_v2.php?format=text&count=4", // API閸︽澘娼冮敍宀冪箲閸ョ偞鐦＄悰灞肩娑擃亜娴橀悧鍥懠閹恒儳娈戦弬鍥ㄦ拱
 		},
-		// 这里需要使用PicFlow API的Text返回类型,所以我们需要format=text参数
-		// 项目地址:https://github.com/matsuzaka-yuki/PicFlow-API
-		// 请自行搭建API
+		// 鏉╂瑩鍣烽棁鈧憰浣峰▏閻⑩墥icFlow API閻ㄥ嚲ext鏉╂柨娲栫猾璇茬€?閹碘偓娴犮儲鍨滄禒顒勬付鐟曚公ormat=text閸欏倹鏆?
+		// 妞ゅ湱娲伴崷鏉挎絻:https://github.com/matsuzaka-yuki/PicFlow-API
+		// 鐠囩柉鍤滅悰灞炬儗瀵ょ瘓PI
 
 		homeText: {
-			enable: true, // 在主页显示自定义文本
+			enable: true, // 閸︺劋瀵屾い鍨▔缁€楦垮殰鐎规矮绠熼弬鍥ㄦ拱
 			title: "我的小天地", // 主页横幅主标题
 			subtitle: [
 				"记录灵感、生活与代码",
@@ -168,62 +168,62 @@ export const siteConfig: SiteConfig = {
 				"今天也是值得认真生活的一天",
 			],
 			typewriter: {
-				enable: true, // 启用副标题打字机效果
-				speed: 100, // 打字速度（毫秒）
-				deleteSpeed: 50, // 删除速度（毫秒）
-				pauseTime: 2000, // 完全显示后的暂停时间（毫秒）
+				enable: true, // 閸氼垳鏁ら崜顖涚垼妫版ɑ澧︾€涙婧€閺佸牊鐏?
+				speed: 100, // 閹垫挸鐡ч柅鐔峰閿涘牊顕犵粔鎺炵礆
+				deleteSpeed: 50, // 閸掔娀娅庨柅鐔峰閿涘牊顕犵粔鎺炵礆
+				pauseTime: 2000, // 鐎瑰苯鍙忛弰鍓с仛閸氬海娈戦弳鍌氫粻閺冨爼妫块敍鍫燁嚑缁夋帪绱?
 			},
 		},
 
 		credit: {
-			enable: false, // 显示横幅图片来源文本
+			enable: false, // 閺勫墽銇氬Ο顏勭畽閸ュ墽澧栭弶銉︾爱閺傚洦婀?
 
-			text: "图片来源", // 要显示的来源文本
-			url: "", // （可选）原始艺术品或艺术家页面的 URL 链接
+			text: "閸ュ墽澧栭弶銉︾爱", // 鐟曚焦妯夌粈铏规畱閺夈儲绨弬鍥ㄦ拱
+			url: "", // 閿涘牆褰查柅澶涚礆閸樼喎顫愰懝鐑樻钩閸濅焦鍨ㄩ懝鐑樻钩鐎瑰爼銆夐棃銏㈡畱 URL 闁剧偓甯?
 		},
 
 		navbar: {
-			transparentMode: "semifull", // 导航栏透明模式："semi" 半透明加圆角，"full" 完全透明，"semifull" 动态透明
+			transparentMode: "semifull", // 鐎佃壈鍩呴弽蹇涒偓蹇旀濡€崇础閿?semi" 閸楀﹪鈧繑妲戦崝鐘叉妇鐟欐帪绱?full" 鐎瑰苯鍙忛柅蹇旀閿?semifull" 閸斻劍鈧線鈧繑妲?
 		},
 	},
 	toc: {
-		enable: true, // 启用目录功能
-		mode: "sidebar", // 目录显示模式："float" 悬浮按钮模式，"sidebar" 侧边栏模式
-		depth: 2, // 目录深度，1-6，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
-		useJapaneseBadge: true, // 使用日语假名标记（あいうえお...）代替数字，开启后会将 1、2、3... 改为 あ、い、う...
+		enable: true, // 閸氼垳鏁ら惄顔肩秿閸旂喕鍏?
+		mode: "sidebar", // 閻╊喖缍嶉弰鍓с仛濡€崇础閿?float" 閹剚璇為幐澶愭尦濡€崇础閿?sidebar" 娓氀嗙珶閺嶅繑膩瀵?
+		depth: 2, // 閻╊喖缍嶅ǎ鍗炲閿?-6閿? 鐞涖劎銇氶崣顏呮▔缁€?h1 閺嶅洭顣介敍? 鐞涖劎銇氶弰鍓с仛 h1 閸?h2 閺嶅洭顣介敍灞肩贩濮濄倗琚幒?
+		useJapaneseBadge: true, // 娴ｈ法鏁ら弮銉嚔閸嬪洤鎮曢弽鍥唶閿涘牄浜楅妵鍕╀簽閵囧牄浜?..閿涘鍞弴鎸庢殶鐎涙绱濆鈧崥顖氭倵娴兼艾鐨?1閵?閵?... 閺€閫涜礋 閵囧倶鈧降浜滈妴浣典簽...
 	},
-	showCoverInContent: true, // 在文章内容页显示文章封面
-	generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
+	showCoverInContent: true, // 閸︺劍鏋冪粩鐘插敶鐎瑰綊銆夐弰鍓с仛閺傚洨鐝风亸渚€娼?
+	generateOgImages: false, // 閸氼垳鏁ら悽鐔稿灇OpenGraph閸ュ墽澧栭崝鐔诲厴,濞夈劍鍓板鈧崥顖氭倵鐟曚焦瑕嗛弻鎾崇发闂€鎸庢闂傝揪绱濇稉宥呯紦鐠侇喗婀伴崷鎷岀殶鐠囨洜娈戦弮璺衡偓娆忕磻閸?
 	favicon: [
-		// 留空以使用默认 favicon
+		// 閻ｆ瑧鈹栨禒銉ゅ▏閻劑绮拋?favicon
 		// {
-		//   src: '/favicon/icon.png',    // 图标文件路径
-		//   theme: 'light',              // 可选，指定主题 'light' | 'dark'
-		//   sizes: '32x32',              // 可选，图标大小
+		//   src: '/favicon/icon.png',    // 閸ョ偓鐖ｉ弬鍥︽鐠侯垰绶?
+		//   theme: 'light',              // 閸欘垶鈧绱濋幐鍥х暰娑撳顣?'light' | 'dark'
+		//   sizes: '32x32',              // 閸欘垶鈧绱濋崶鐐垼婢堆冪毈
 		// }
 	],
 
-	// 字体配置
+	// 鐎涙ぞ缍嬮柊宥囩枂
 	font: {
-		// 注意：自定义字体需要在 src/styles/main.css 中引入字体文件
-		// 注意：字体子集优化功能目前仅支持 TTF 格式字体,开启后需要在生产环境才能看到效果,在Dev环境下显示的是浏览器默认字体!
+		// 濞夈劍鍓伴敍姘冲殰鐎规矮绠熺€涙ぞ缍嬮棁鈧憰浣告躬 src/styles/main.css 娑擃厼绱╅崗銉ョ摟娴ｆ挻鏋冩禒?
+		// 濞夈劍鍓伴敍姘摟娴ｆ挸鐡欓梿鍡曠喘閸栨牕濮涢懗鐣屾窗閸撳秳绮庨弨顖涘瘮 TTF 閺嶇厧绱＄€涙ぞ缍?瀵偓閸氼垰鎮楅棁鈧憰浣告躬閻㈢喍楠囬悳顖氼暔閹靛秷鍏橀惇瀣煂閺佸牊鐏?閸︹€昬v閻滎垰顣ㄦ稉瀣▔缁€铏规畱閺勵垱绁荤憴鍫濇珤姒涙顓荤€涙ぞ缍?
 		asciiFont: {
-			// 英文字体 - 优先级最高
-			// 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
+			// 閼昏鲸鏋冪€涙ぞ缍?- 娴兼ê鍘涚痪褎娓舵?
+			// 閹稿洤鐣炬稉楦垮閺傚洤鐡ф担鎾冲灟閺冪姾顔戠€涙ぞ缍嬮崠鍛儓婢舵艾銇囬懠鍐ㄦ纯閿涘矂鍏橀崣顏冪窗娣囨繄鏆€ ASCII 鐎涙顑佺€涙劙娉?
 			fontFamily: "ZenMaruGothic-Medium",
 			fontWeight: "400",
 			localFonts: ["ZenMaruGothic-Medium.ttf"],
-			enableCompress: true, // 启用字体子集优化，减少字体文件大小
+			enableCompress: true, // 閸氼垳鏁ょ€涙ぞ缍嬬€涙劙娉︽导妯哄閿涘苯鍣虹亸鎴濈摟娴ｆ挻鏋冩禒璺恒亣鐏?
 		},
 		cjkFont: {
-			// 中日韩字体 - 作为回退字体
-			fontFamily: "萝莉体 第二版",
+			// 娑擃厽妫╅棅鈺佺摟娴?- 娴ｆ粈璐熼崶鐐衡偓鈧€涙ぞ缍?
+            fontFamily: "萝莉体 第二版",
 			fontWeight: "500",
-			localFonts: ["萝莉体 第二版.ttf"],
-			enableCompress: true, // 启用字体子集优化，减少字体文件大小
+            localFonts: ["萝莉体 第二版.ttf"],
+			enableCompress: true, // 閸氼垳鏁ょ€涙ぞ缍嬬€涙劙娉︽导妯哄閿涘苯鍣虹亸鎴濈摟娴ｆ挻鏋冩禒璺恒亣鐏?
 		},
 	},
-	showLastModified: true, // 控制“上次编辑”卡片显示的开关
+	showLastModified: true, // 閹貉冨煑閳ユ粈绗傚▎锛勭椽鏉堟垟鈧繂宕遍悧鍥ㄦ▔缁€铏规畱瀵偓閸?
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	src: {
@@ -234,7 +234,7 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 			"/assets/desktop-banner/4.webp",
 			"/assets/desktop-banner/5.webp",
 			"/assets/desktop-banner/6.webp",
-		], // 桌面横幅图片
+		], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
 		mobile: [
 			"/assets/mobile-banner/1.webp",
 			"/assets/mobile-banner/2.webp",
@@ -242,23 +242,23 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 			"/assets/mobile-banner/4.webp",
 			"/assets/mobile-banner/5.webp",
 			"/assets/mobile-banner/6.webp",
-		], // 移动横幅图片
-	}, // 使用本地横幅图片
-	position: "center", // 壁纸位置，等同于 object-position
+		], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
+	}, // 娴ｈ法鏁ら張顒€婀村Ο顏勭畽閸ュ墽澧?
+	position: "center", // 婢逛胶鐒婃担宥囩枂閿涘瞼鐡戦崥灞肩艾 object-position
 	carousel: {
-		enable: true, // 启用轮播
-		interval: 5, // 轮播间隔时间（秒）
+		enable: true, // 閸氼垳鏁ゆ潪顔芥尡
+		interval: 5, // 鏉烆喗鎸遍梻鎾閺冨爼妫块敍鍫㈩潡閿?
 	},
-	zIndex: -1, // 层级，确保壁纸在背景层
-	opacity: 0.8, // 壁纸透明度
-	blur: 1, // 背景模糊程度
+	zIndex: -1, // 鐏炲倻楠囬敍宀€鈥樻穱婵嗩梿缁剧婀懗灞炬珯鐏?
+	opacity: 0.8, // 婢逛胶鐒婇柅蹇旀鎼?
+	blur: 1, // 閼冲本娅欏Ο锛勭ˇ缁嬪瀹?
 };
 
 export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
-		// 支持自定义导航栏链接，支持多级菜单
+		// 閺€顖涘瘮閼奉亜鐣炬稊澶婎嚤閼割亝鐖柧鐐复閿涘本鏁幐浣割樋缁狙嗗綅閸?
 		{
 			name: "Links",
 			url: "/links/",
@@ -355,12 +355,12 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
+	avatar: "assets/images/avatar.webp", // 閻╃顕禍?/src 閻╊喖缍嶉妴鍌氼洤閺嬫粈浜?'/' 瀵偓婢惰揪绱濋崚娆戞祲鐎甸€涚艾 /public 閻╊喖缍?
 	name: "まつざか ゆき",
 	bio: "世界は大きい、君は行かなければならない",
 	typewriter: {
-		enable: true, // 启用个人简介打字机效果
-		speed: 80, // 打字速度（毫秒）
+		enable: true, // 閸氼垳鏁ゆ稉顏冩眽缁犫偓娴犲澧︾€涙婧€閺佸牊鐏?
+		speed: 80, // 閹垫挸鐡ч柅鐔峰閿涘牊顕犵粔鎺炵礆
 	},
 	links: [
 		{
@@ -369,24 +369,9 @@ export const profileConfig: ProfileConfig = {
 			url: "https://space.bilibili.com/701864046",
 		},
 		{
-			name: "Gitee",
-			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
-		},
-		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
 			url: "https://github.com/matsuzaka-yuki",
-		},
-		{
-			name: "Codeberg",
-			icon: "simple-icons:codeberg",
-			url: "https://codeberg.org",
-		},
-		{
-			name: "Discord",
-			icon: "fa7-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
 		},
 	],
 };
@@ -397,42 +382,42 @@ export const licenseConfig: LicenseConfig = {
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
-// Permalink 固定链接配置
+// Permalink 閸ュ搫鐣鹃柧鐐复闁板秶鐤?
 export const permalinkConfig: PermalinkConfig = {
-	enable: false, // 是否启用全局 permalink 功能，关闭时使用默认的文件名作为链接
+	enable: false, // 閺勵垰鎯侀崥顖滄暏閸忋劌鐪?permalink 閸旂喕鍏橀敍灞藉彠闂傤厽妞傛担璺ㄦ暏姒涙顓婚惃鍕瀮娴犺泛鎮曟担婊€璐熼柧鐐复
 	/**
-	 * permalink 格式模板
-	 * 支持的占位符：
-	 * - %year% : 4位年份 (2024)
-	 * - %monthnum% : 2位月份 (01-12)
-	 * - %day% : 2位日期 (01-31)
-	 * - %hour% : 2位小时 (00-23)
-	 * - %minute% : 2位分钟 (00-59)
-	 * - %second% : 2位秒数 (00-59)
-	 * - %post_id% : 文章序号（按发布时间升序排列，最早的文章为1）
-	 * - %postname% : 文章文件名（slug）
-	 * - %category% : 分类名（无分类时为 "uncategorized"）
+	 * permalink 閺嶇厧绱″Ο鈩冩緲
+	 * 閺€顖涘瘮閻ㄥ嫬宕版担宥囶儊閿?
+	 * - %year% : 4娴ｅ秴鍕炬禒?(2024)
+	 * - %monthnum% : 2娴ｅ秵婀€娴?(01-12)
+	 * - %day% : 2娴ｅ秵妫╅張?(01-31)
+	 * - %hour% : 2娴ｅ秴鐨弮?(00-23)
+	 * - %minute% : 2娴ｅ秴鍨庨柦?(00-59)
+	 * - %second% : 2娴ｅ秶顫楅弫?(00-59)
+	 * - %post_id% : 閺傚洨鐝锋惔蹇撳娇閿涘牊瀵滈崣鎴濈閺冨爼妫块崡鍥х碍閹烘帒鍨敍灞炬付閺冣晝娈戦弬鍥╃彿娑?閿?
+	 * - %postname% : 閺傚洨鐝烽弬鍥︽閸氬稄绱檚lug閿?
+	 * - %category% : 閸掑棛琚崥宥忕礄閺冪姴鍨庣猾缁樻娑?"uncategorized"閿?
 	 *
-	 * 示例：
+	 * 缁€杞扮伐閿?
 	 * - "%year%-%monthnum%-%postname%" => "/2024-12-my-post/"
 	 * - "%post_id%-%postname%" => "/42-my-post/"
 	 * - "%category%-%postname%" => "/tech-my-post/"
 	 *
-	 * 注意：不支持斜杠 "/"，所有生成的链接都在根目录下
+	 * 濞夈劍鍓伴敍姘瑝閺€顖涘瘮閺傛粍娼?"/"閿涘本澧嶉張澶屾晸閹存劗娈戦柧鐐复闁棄婀弽鍦窗瑜版洑绗?
 	 */
-	format: "%postname%", // 默认使用文件名
+	format: "%postname%", // 姒涙顓绘担璺ㄦ暏閺傚洣娆㈤崥?
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
-	// 注意：某些样式（如背景颜色）已被覆盖，请参阅 astro.config.mjs 文件。
-	// 请选择深色主题，因为此博客主题目前仅支持深色背景
+	// 濞夈劍鍓伴敍姘厙娴滄稒鐗卞蹇ョ礄婵″倽鍎楅弲顖烆杹閼硅绱氬鑼额潶鐟曞棛娲婇敍宀冾嚞閸欏倿妲?astro.config.mjs 閺傚洣娆㈤妴?
+	// 鐠囩兘鈧瀚ㄥǎ杈娑撳顣介敍灞芥礈娑撶儤顒濋崡姘吂娑撳顣介惄顔煎娴犲懏鏁幐浣圭箒閼硅尪鍎楅弲?
 	theme: "github-dark",
-	// 是否在主题切换时隐藏代码块以避免卡顿问题
+	// 閺勵垰鎯侀崷銊ゅ瘜妫版ê鍨忛幑銏℃闂呮劘妫屾禒锝囩垳閸фぞ浜掗柆鍨帳閸楋繝銆戦梻顕€顣?
 	hideDuringThemeTransition: true,
 };
 
 export const commentConfig: CommentConfig = {
-	enable: false, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	enable: false, // 閸氼垳鏁ょ拠鍕啈閸旂喕鍏橀妴鍌氱秼鐠佸墽鐤嗘稉?false 閺冭绱濈拠鍕啈缂佸嫪娆㈢亸鍡曠瑝娴兼碍妯夌粈鍝勬躬閺傚洨鐝烽崠鍝勭厵閵?
 	twikoo: {
 		envId: "https://twikoo.vercel.app",
 		lang: SITE_LANG,
@@ -440,180 +425,179 @@ export const commentConfig: CommentConfig = {
 };
 
 export const shareConfig: ShareConfig = {
-	enable: true, // 启用分享功能
+	enable: true, // 閸氼垳鏁ら崚鍡曢煩閸旂喕鍏?
 };
 
 export const musicPlayerConfig: MusicPlayerConfig = {
-	enable: true, // 启用音乐播放器功能
-	mode: "meting", // 音乐播放器模式，可选 "local" 或 "meting"
+	enable: true, // 閸氼垳鏁ら棅鍏呯閹绢厽鏂侀崳銊ュ閼?
+	mode: "meting", // 闂婂厖绠伴幘顓熸杹閸ｃ劍膩瀵骏绱濋崣顖炩偓?"local" 閹?"meting"
 	meting_api:
-		"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 地址
-	id: "14164869977", // 歌单ID
-	server: "netease", // 音乐源服务器。有的meting的api源支持更多平台,一般来说,netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
-	type: "playlist", // 播单类型
+		"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 閸︽澘娼?
+	id: "14164869977", // 濮濆苯宕烮D
+	server: "netease", // 闂婂厖绠板┃鎰箛閸斺€虫珤閵嗗倹婀侀惃鍒磂ting閻ㄥ垷pi濠ф劖鏁幐浣规纯婢舵艾閽╅崣?娑撯偓閼割剚娼电拠?netease=缂冩垶妲楁禍鎴︾叾娑? tencent=QQ闂婂厖绠? kugou=闁伴瀚嶉棅鍏呯, xiami=閾忓墽鑳岄棅鍏呯, baidu=閻ф儳瀹抽棅鍏呯
+	type: "playlist", // 閹绢厼宕熺猾璇茬€?
 };
 
 export const footerConfig: FooterConfig = {
-	enable: false, // 是否启用Footer HTML注入功能
-	customHtml: "", // HTML格式的自定义页脚信息，例如备案号等，默认留空
-	// 也可以直接编辑 FooterConfig.html 文件来添加备案号等自定义内容
-	// 注意：若 customHtml 不为空，则使用 customHtml 中的内容；若 customHtml 留空，则使用 FooterConfig.html 文件中的内容
-	// FooterConfig.html 可能会在未来的某个版本弃用
+	enable: false, // 閺勵垰鎯侀崥顖滄暏Footer HTML濞夈劌鍙嗛崝鐔诲厴
+	customHtml: "", // HTML閺嶇厧绱￠惃鍕殰鐎规矮绠熸い浣冨壖娣団剝浼呴敍灞肩伐婵″倸顦鍫濆娇缁涘绱濇妯款吇閻ｆ瑧鈹?
+	// 娑旂喎褰叉禒銉ф纯閹恒儳绱潏?FooterConfig.html 閺傚洣娆㈤弶銉﹀潑閸旂姴顦鍫濆娇缁涘鍤滅€规矮绠熼崘鍛啇
+	// 濞夈劍鍓伴敍姘冲 customHtml 娑撳秳璐熺粚鐚寸礉閸掓瑤濞囬悽?customHtml 娑擃厾娈戦崘鍛啇閿涙稖瀚?customHtml 閻ｆ瑧鈹栭敍灞藉灟娴ｈ法鏁?FooterConfig.html 閺傚洣娆㈡稉顓犳畱閸愬懎顔?
+	// FooterConfig.html 閸欘垵鍏樻导姘躬閺堫亝娼甸惃鍕厙娑擃亞澧楅張顒€绱旈悽?
 };
 
 /**
- * 侧边栏布局配置
- * 用于控制侧边栏组件的显示、排序、动画和响应式行为
- * sidebar: 控制组件所在的侧边栏（left 或 right）。注意：移动端通常不显示右侧栏内容。若组件设置在 right，请确保 layout.position 为 "both"。
+ * 娓氀嗙珶閺嶅繐绔风仦鈧柊宥囩枂
+ * 閻劋绨幒褍鍩楁笟褑绔熼弽蹇曠矋娴犲墎娈戦弰鍓с仛閵嗕焦甯撴惔蹇嬧偓浣稿З閻㈣鎷伴崫宥呯安瀵繗顢戞稉?
+ * sidebar: 閹貉冨煑缂佸嫪娆㈤幍鈧崷銊ф畱娓氀嗙珶閺嶅骏绱檒eft 閹?right閿涘鈧倹鏁為幇蹇ョ窗缁夎濮╃粩顖炩偓姘埗娑撳秵妯夌粈鍝勫礁娓氀勭埉閸愬懎顔愰妴鍌濆缂佸嫪娆㈢拋鍓х枂閸?right閿涘矁顕涵顔荤箽 layout.position 娑?"both"閵?
  */
 export const sidebarLayoutConfig: SidebarLayoutConfig = {
-	// 侧边栏组件属性配置列表
+	// 娓氀嗙珶閺嶅繒绮嶆禒璺虹潣閹囧帳缂冾喖鍨悰?
 	properties: [
 		{
-			// 组件类型：用户资料组件
-			type: "profile",
-			// 组件位置："top" 表示固定在顶部
+            type: "profile",
+			// 缂佸嫪娆㈡担宥囩枂閿?top" 鐞涖劎銇氶崶鍝勭暰閸︺劑銆婇柈?
 			position: "top",
-			// CSS 类名，用于应用样式和动画
+			// CSS 缁鎮曢敍宀€鏁ゆ禍搴＄安閻劍鐗卞蹇撴嫲閸斻劎鏁?
 			class: "onload-animation",
-			// 动画延迟时间（毫秒），用于错开动画效果
+			// 閸斻劎鏁惧鎯扮箿閺冨爼妫块敍鍫燁嚑缁夋帪绱氶敍宀€鏁ゆ禍搴ㄦ晩瀵偓閸斻劎鏁鹃弫鍫熺亯
 			animationDelay: 0,
 		},
 		{
-			// 组件类型：分类组件
+			// 缂佸嫪娆㈢猾璇茬€烽敍姘瀻缁崵绮嶆禒?
 			type: "categories",
-			// 组件位置："sticky" 表示粘性定位，可滚动
+			// 缂佸嫪娆㈡担宥囩枂閿?sticky" 鐞涖劎銇氱划妯烩偓褍鐣炬担宥忕礉閸欘垱绮撮崝?
 			position: "sticky",
-			// CSS 类名
+			// CSS 缁鎮?
 			class: "onload-animation",
-			// 动画延迟时间
+			// 閸斻劎鏁惧鎯扮箿閺冨爼妫?
 			animationDelay: 150,
-			// 响应式配置
+			// 閸濆秴绨插蹇涘帳缂?
 			responsive: {
-				// 折叠阈值：当分类数量超过5个时自动折叠
+				// 閹舵ê褰旈梼鍫濃偓纭风窗瑜版挸鍨庣猾缁樻殶闁插繗绉存潻?娑擃亝妞傞懛顏勫З閹舵ê褰?
 				collapseThreshold: 5,
 			},
 		},
 		{
-			// 组件类型：标签组件
+			// 缂佸嫪娆㈢猾璇茬€烽敍姘垼缁涘墽绮嶆禒?
 			type: "tags",
-			// 组件位置："sticky" 表示粘性定位
+			// 缂佸嫪娆㈡担宥囩枂閿?sticky" 鐞涖劎銇氱划妯烩偓褍鐣炬担?
 			position: "top",
-			// CSS 类名
+			// CSS 缁鎮?
 			class: "onload-animation",
-			// 动画延迟时间
+			// 閸斻劎鏁惧鎯扮箿閺冨爼妫?
 			animationDelay: 250,
-			// 响应式配置
+			// 閸濆秴绨插蹇涘帳缂?
 			responsive: {
-				// 折叠阈值：当标签数量超过20个时自动折叠
+				// 閹舵ê褰旈梼鍫濃偓纭风窗瑜版挻鐖ｇ粵鐐殶闁插繗绉存潻?0娑擃亝妞傞懛顏勫З閹舵ê褰?
 				collapseThreshold: 20,
 			},
 		},
 		{
-			// 组件类型：站点统计组件
+			// 缂佸嫪娆㈢猾璇茬€烽敍姘辩彲閻愬湱绮虹拋锛勭矋娴?
 			type: "site-stats",
-			// 组件位置
+			// 缂佸嫪娆㈡担宥囩枂
 			position: "top",
-			// CSS 类名
+			// CSS 缁鎮?
 			class: "onload-animation",
-			// 动画延迟时间
+			// 閸斻劎鏁惧鎯扮箿閺冨爼妫?
 			animationDelay: 200,
 		},
 		{
-			// 组件类型：日历组件(移动端不显示)
+			// 缂佸嫪娆㈢猾璇茬€烽敍姘）閸樺棛绮嶆禒?缁夎濮╃粩顖欑瑝閺勫墽銇?
 			type: "calendar",
-			// 组件位置
+			// 缂佸嫪娆㈡担宥囩枂
 			position: "top",
-			// CSS 类名
+			// CSS 缁鎮?
 			class: "onload-animation",
-			// 动画延迟时间
+			// 閸斻劎鏁惧鎯扮箿閺冨爼妫?
 			animationDelay: 250,
 		},
 	],
 
-	// 侧栏组件布局配置
+	// 娓氀勭埉缂佸嫪娆㈢敮鍐ㄧ湰闁板秶鐤?
 	components: {
 		left: ["calendar", "categories", "tags"],
 		right: ["profile"],
 		drawer: ["profile", "categories", "tags"],
 	},
 
-	// 默认动画配置
+	// 姒涙顓婚崝銊ф暰闁板秶鐤?
 	defaultAnimation: {
-		// 是否启用默认动画
+		// 閺勵垰鎯侀崥顖滄暏姒涙顓婚崝銊ф暰
 		enable: true,
-		// 基础延迟时间（毫秒）
+		// 閸╄櫣顢呭鎯扮箿閺冨爼妫块敍鍫燁嚑缁夋帪绱?
 		baseDelay: 0,
-		// 递增延迟时间（毫秒），每个组件依次增加的延迟
+		// 闁帒顤冨鎯扮箿閺冨爼妫块敍鍫燁嚑缁夋帪绱氶敍灞剧槨娑擃亞绮嶆禒鏈电贩濞嗏€愁杻閸旂姷娈戝鎯扮箿
 		increment: 50,
 	},
 
-	// 响应式布局配置
+	// 閸濆秴绨插蹇撶鐏炩偓闁板秶鐤?
 	responsive: {
-		// 断点配置（像素值）
+		// 閺傤厾鍋ｉ柊宥囩枂閿涘牆鍎氱槐鐘测偓纭风礆
 		breakpoints: {
-			// 移动端断点：屏幕宽度小于768px
+			// 缁夎濮╃粩顖涙焽閻愮櫢绱扮仦蹇撶鐎硅棄瀹崇亸蹇庣艾768px
 			mobile: 768,
-			// 平板端断点：屏幕宽度小于1280px
+			// 楠炶櫕婢樼粩顖涙焽閻愮櫢绱扮仦蹇撶鐎硅棄瀹崇亸蹇庣艾1280px
 			tablet: 1280,
-			// 桌面端断点：屏幕宽度大于等于1280px
+			// 濡楀矂娼扮粩顖涙焽閻愮櫢绱扮仦蹇撶鐎硅棄瀹虫径褌绨粵澶夌艾1280px
 			desktop: 1280,
 		},
 	},
 };
 
 export const sakuraConfig: SakuraConfig = {
-	enable: false, // 默认关闭樱花特效
-	sakuraNum: 21, // 樱花数量
-	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
+	enable: false, // 姒涙顓婚崗鎶芥４濡精濮抽悧瑙勬櫏
+	sakuraNum: 21, // 濡精濮抽弫浼村櫤
+	limitTimes: -1, // 濡精濮崇搾濠勬櫕闂勬劕鍩楀▎鈩冩殶閿?1娑撶儤妫ら梽鎰儕閻?
 	size: {
-		min: 0.5, // 樱花最小尺寸倍数
-		max: 1.1, // 樱花最大尺寸倍数
+		min: 0.5, // 濡精濮抽張鈧亸蹇撴槀鐎电鈧秵鏆?
+		max: 1.1, // 濡精濮抽張鈧径褍鏄傜€电鈧秵鏆?
 	},
 	opacity: {
-		min: 0.3, // 樱花最小不透明度
-		max: 0.9, // 樱花最大不透明度
+		min: 0.3, // 濡精濮抽張鈧亸蹇庣瑝闁繑妲戞惔?
+		max: 0.9, // 濡精濮抽張鈧径褌绗夐柅蹇旀鎼?
 	},
 	speed: {
 		horizontal: {
-			min: -1.7, // 水平移动速度最小值
-			max: -1.2, // 水平移动速度最大值
+			min: -1.7, // 濮樻潙閽╃粔璇插З闁喎瀹抽張鈧亸蹇撯偓?
+			max: -1.2, // 濮樻潙閽╃粔璇插З闁喎瀹抽張鈧径褍鈧?
 		},
 		vertical: {
-			min: 1.5, // 垂直移动速度最小值
-			max: 2.2, // 垂直移动速度最大值
+			min: 1.5, // 閸ㄥ倻娲跨粔璇插З闁喎瀹抽張鈧亸蹇撯偓?
+			max: 2.2, // 閸ㄥ倻娲跨粔璇插З闁喎瀹抽張鈧径褍鈧?
 		},
-		rotation: 0.03, // 旋转速度
-		fadeSpeed: 0.03, // 消失速度，不应大于最小不透明度
+		rotation: 0.03, // 閺冨娴嗛柅鐔峰
+		fadeSpeed: 0.03, // 濞戝牆銇戦柅鐔峰閿涘奔绗夋惔鏂裤亣娴滃孩娓剁亸蹇庣瑝闁繑妲戞惔?
 	},
-	zIndex: 100, // 层级，确保樱花在合适的层级显示
+	zIndex: 100, // 鐏炲倻楠囬敍宀€鈥樻穱婵嚺懞鍗炴躬閸氬牓鈧倻娈戠仦鍌滈獓閺勫墽銇?
 };
 
-// Pio 看板娘配置
+// Pio 閻婢樻繛姗€鍘ょ純?
 export const pioConfig: import("./types/config").PioConfig = {
-	enable: true, // 启用看板娘
-	models: ["/pio/models/pio/model.json"], // 默认模型路径
-	position: "left", // 模型位置
-	width: 280, // 默认宽度
-	height: 250, // 默认高度
-	mode: "draggable", // 默认为可拖拽模式
-	hiddenOnMobile: true, // 默认在移动设备上隐藏
+	enable: true, // 閸氼垳鏁ら惇瀣緲婵?
+	models: ["/pio/models/pio/model.json"], // 姒涙顓诲Ο鈥崇€风捄顖氱窞
+	position: "left", // 濡€崇€锋担宥囩枂
+	width: 280, // 姒涙顓荤€硅棄瀹?
+	height: 250, // 姒涙顓绘妯哄
+	mode: "draggable", // 姒涙顓绘稉鍝勫讲閹锋牗瀚垮Ο鈥崇础
+	hiddenOnMobile: true, // 姒涙顓婚崷銊╅崝銊啎婢跺洣绗傞梾鎰
 	dialog: {
-		welcome: "Welcome to Mizuki Website!", // 欢迎词
+		welcome: "Welcome to Mizuki Website!", // 濞嗐垼绻嬬拠?
 		touch: [
 			"What are you doing?",
 			"Stop touching me!",
 			"HENTAI!",
 			"Don't bully me like that!",
-		], // 触摸提示
-		home: "Click here to go back to homepage!", // 首页提示
-		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
-		close: "QWQ See you next time~", // 关闭提示
-		link: "https://github.com/matsuzaka-yuki/Mizuki", // 关于链接
+		], // 鐟欙附鎳滈幓鎰仛
+		home: "Click here to go back to homepage!", // 妫ｆ牠銆夐幓鎰仛
+		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 閹广垼顥婇幓鎰仛
+		close: "QWQ See you next time~", // 閸忔娊妫撮幓鎰仛
+		link: "https://github.com/matsuzaka-yuki/Mizuki", // 閸忓厖绨柧鐐复
 	},
 };
 
-// 导出所有配置的统一接口
+// 鐎电厧鍤幍鈧張澶愬帳缂冾喚娈戠紒鐔剁閹恒儱褰?
 export const widgetConfigs = {
 	profile: profileConfig,
 	music: musicPlayerConfig,

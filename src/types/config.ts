@@ -325,6 +325,7 @@ export type FooterConfig = {
 // 缁勪欢閰嶇疆绫诲瀷瀹氫箟
 export type WidgetComponentType =
 	| "profile"
+	| "profile-no-links"
 	| "categories"
 	| "tags"
 	| "toc"
