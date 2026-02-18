@@ -1,3 +1,19 @@
+## 关于 Kirayu
+
+这里是 Kirayu 的个人介绍区域。你可以写：
+- 我是谁（身份/方向）
+- 我在做什么（项目、兴趣、记录内容）
+- 我希望这个站点承载什么
+
+## 关于 Axis
+
+这里是 Axis 的介绍区域。你可以写：
+- Axis 在这个站点中的角色
+- 和 Kirayu 的协作方式
+- 你们想长期维护的内容方向
+
+## 关于本站
+
 这个网站基于 **Astro** 构建，使用 [Mizuki](https://github.com/matsuzaka-yuki/mizuki) 主题。
 
 ::github{repo="matsuzaka-yuki/Mizuki"}
