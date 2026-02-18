@@ -5,12 +5,15 @@ export function formatDateToYYYYMMDD(date: Date): string {
 }
 
 // 国际化日期格式化函数
-export function formatDateI18n(dateString: string): string {
-	const date = new Date(dateString);
+export function formatDateI18n(
+	dateInput: string | Date,
+	options?: Intl.DateTimeFormatOptions,
+): string {
+	const date = typeof dateInput === "string" ? new Date(dateInput) : dateInput;
 	const lang = siteConfig.lang || "en";
 
-	// 根据语言设置不同的日期格式
-	const options: Intl.DateTimeFormatOptions = {
+	// 默认日期格式
+	const defaultOptions: Intl.DateTimeFormatOptions = {
 		year: "numeric",
 		month: "long",
 		day: "numeric",
@@ -35,5 +38,5 @@ export function formatDateI18n(dateString: string): string {
 	};
 
 	const locale = localeMap[lang] || "en-US";
-	return date.toLocaleDateString(locale, options);
+	return date.toLocaleDateString(locale, options || defaultOptions);
 }

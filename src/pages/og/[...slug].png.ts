@@ -5,6 +5,7 @@ import type { APIContext, GetStaticPaths } from "astro";
 import satori from "satori";
 import sharp from "sharp";
 import { removeFileExtension } from "@/utils/url-utils";
+import { formatDateI18n } from "@/utils/date-utils";
 
 import { profileConfig, siteConfig } from "../../config";
 
@@ -124,7 +125,7 @@ export async function GET({
 	const subtleTextColor = `hsl(${hue}, 10%, 75%)`;
 	const backgroundColor = `hsl(${hue}, 15%, 12%)`;
 
-	const pubDate = post.data.published.toLocaleDateString("en-US", {
+	const pubDate = formatDateI18n(post.data.published, {
 		year: "numeric",
 		month: "short",
 		day: "numeric",

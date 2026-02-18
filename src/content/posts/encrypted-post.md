@@ -1,98 +1,60 @@
 ---
-title: Encrypted Post
+title: 加密文章示例
 published: 2024-01-15
-description: This is an article for testing the page encryption feature
+description: 用于演示页面加密与密码验证流程
 encrypted: true
 pinned: true
 password: "123456"
 alias: "encrypted-example"
-tags: ["Test", "Encryption"]
-category: "Technology"
+tags: ["示例", "加密"]
+category: "技术"
 ---
 
-This blog template is built with [Astro](https://astro.build/). For the things that are not mentioned in this guide, you may find the answers in the [Astro Docs](https://docs.astro.build/).
+这是一篇用于测试文章加密功能的示例内容。  
+当 `encrypted: true` 时，页面会在前端要求输入密码后再尝试解密正文。
 
-## Front-matter of Posts
+## 前言字段示例
 
 ```yaml
 ---
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new Astro blog.
-image: ./cover.jpg
-tags: [Foo, Bar]
-category: Front-end
-draft: false
----
-```
-
-
-
-
-
-| Attribute     | Description                                                                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`       | The title of the post.                                                                                                                                                                                      |
-| `published`   | The date the post was published.                                                                                                                                                                            |
-| `pinned`      | Whether this post is pinned to the top of the post list.                                                                                                                                                   |
-| `description` | A short description of the post. Displayed on index page.                                                                                                                                                   |
-| `image`       | The cover image path of the post.<br/>1. Start with `http://` or `https://`: Use web image<br/>2. Start with `/`: For image in `public` dir<br/>3. With none of the prefixes: Relative to the markdown file |
-| `tags`        | The tags of the post.                                                                                                                                                                                       |
-| `category`    | The category of the post.                                                                                                                                                                                   |
-| `alias`   | alias for the post. The post will be accessible at `/posts/{alias}/`. Example: `my-special-article` (will be available at `/posts/my-special-article/`)                                   |
-| `licenseName` | The license name for the post content.                                                                                                                                                                      |
-| `author`      | The author of the post.                                                                                                                                                                                     |
-| `sourceLink`  | The source link or reference for the post content.                                                                                                                                                          |
-| `draft`       | If this post is still a draft, which won't be displayed.                                                                                                                                                    |
-
-## Where to Place the Post Files
-
-
-
-Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
-
-```
-src/content/posts/
-├── post-1.md
-└── post-2/
-    ├── cover.png
-    └── index.md
-```
-
-## Posts alias
-
-You can set a alias for any post by adding the `alias` field to the front-matter:
-
-```yaml
----
-title: My Special Article
+title: 加密文章示例
 published: 2024-01-15
-alias: "my-special-article"
-tags: ["Example"]
-category: "Technology"
+description: 用于演示页面加密与密码验证流程
+encrypted: true
+password: "123456"
+alias: "encrypted-example"
+tags: ["示例", "加密"]
+category: "技术"
 ---
 ```
 
-When a alias is set:
-- The post will be accessible at the custom URL (e.g., `/posts/my-special-article/`)
-- The default `/posts/{slug}/` URL will still work
-- RSS/Atom feeds will use the custom alias
-- All internal links will automatically use the custom alias
+## 常用字段说明
 
-**Important Notes:**
-- Alias should NOT include `/posts/` prefix (it will be added automatically)
-- Avoid special characters and spaces in alias
-- Use lowercase letters and hyphens for best SEO practices
-- Make sure alias are unique across all posts
-- Don't include leading or trailing slashes
+| 字段 | 说明 |
+|---|---|
+| `title` | 文章标题 |
+| `published` | 发布日期 |
+| `description` | 文章摘要 |
+| `encrypted` | 是否启用加密 |
+| `password` | 访问密码 |
+| `alias` | 自定义访问路径 |
+| `tags` | 标签列表 |
+| `category` | 文章分类 |
+| `draft` | 是否草稿 |
 
+## 自定义别名
 
-## How It Works
+设置 `alias` 后，文章可通过 `/posts/{alias}/` 访问。  
+建议使用小写字母和连字符，避免空格与特殊字符。
+
+## 解密流程示意
 
 ```mermaid
 graph LR
-    A[User Password] --> B[Direct AES Decryption]
-    B --> C{Check Prefix?}
-    C -- "MIZUKI-VERIFY:" found --> D[Success: Render Content]
-    C -- Random/Garbage --> E[Fail: Wrong Password]
+    A[输入密码] --> B[执行 AES 解密]
+    B --> C{校验前缀}
+    C -- 校验通过 --> D[渲染正文内容]
+    C -- 校验失败 --> E[提示密码错误]
 ```
+
+如果你看到这段内容，说明当前示例文件已成功通过解密渲染。

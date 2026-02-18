@@ -15,10 +15,12 @@ export interface DiaryItem {
 const diaryData: DiaryItem[] = [
 	{
 		id: 1,
-		content:
-			"The falling speed of cherry blossoms is five centimeters per second!",
+		content: "樱花下落的速度，是每秒五厘米。",
 		date: "2025-01-15T10:30:00Z",
 		images: ["/images/diary/sakura.jpg", "/images/diary/1.jpg"],
+		location: "城市公园",
+		mood: "平静",
+		tags: ["春天", "随记"],
 	},
 ];
 

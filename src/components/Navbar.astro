@@ -4,12 +4,9 @@ import { navBarConfig, siteConfig } from "../config";
 import { LinkPresets } from "../constants/link-presets";
 import { LinkPreset, type NavBarLink } from "../types/config";
 import { url } from "../utils/url-utils";
-import LayoutSwitchButton from "./LayoutSwitchButton.svelte";
 import LightDarkSwitch from "./LightDarkSwitch.svelte";
 import MobileTOC from "./MobileTOC.svelte";
 import Search from "./Search.svelte";
-import WallpaperSwitch from "./WallpaperSwitch.svelte";
-import DisplaySettings from "./widget/DisplaySettings.svelte";
 import DropdownMenu from "./widget/DropdownMenu.astro";
 import NavMenuPanel from "./widget/NavMenuPanel.astro";
 
@@ -19,9 +16,6 @@ const className = Astro.props.class;
 const navbarTransparentMode =
 	siteConfig.banner?.navbar?.transparentMode || "semi";
 
-// 获取整体布局方案切换按钮显示设置
-const modeSwitchDisplay =
-	siteConfig.wallpaperMode?.showModeSwitchOnMobile || "desktop";
 
 // 检查是否为首页
 const isHomePage = Astro.url.pathname === "/" || Astro.url.pathname === "";
@@ -38,33 +32,37 @@ let links: NavBarLink[] = navBarConfig.links.map(
 const rawLogo = siteConfig.navbarTitle?.logo || "/assets/home/default-logo.png";
 const logoSrc = rawLogo.match(/^(http|https|\/\/)/) ? rawLogo : url(rawLogo);
 
-const rawIcon = siteConfig.navbarTitle?.icon || "/assets/home/home.png";
-const iconSrc = rawIcon.match(/^(http|https|\/\/)/) ? rawIcon : url(rawIcon);
+const rawIcon = siteConfig.navbarTitle?.icon ?? "/assets/home/home.png";
+const iconSrc = rawIcon
+	? rawIcon.match(/^(http|https|\/\/)/)
+		? rawIcon
+		: url(rawIcon)
+	: null;
 ---
 <div id="navbar" class="z-50 onload-animation group" data-transparent-mode={navbarTransparentMode} data-is-home={isHomePage}>
     <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> <!-- used for onload animation -->
     <div class:list={[className, "!overflow-visible max-w-[var(--page-width)] h-[4.5rem] mx-auto flex items-center justify-between px-4"]}>
         <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[2.5rem] md:h-[3.25rem] md:[.enable-banner_&]:h-[2.5rem] md:[.enable-banner_&]:group-[.scrolled]:h-[3.25rem] px-5 font-bold active:scale-95 shrink-0 transition-all duration-300">
             <div class="flex flex-row items-center text-md">
-				{/* 使用navbarTitle配置或默认配置 */}
+				{/* 使用navbarTitle配置或默认配�?*/}
                 {siteConfig.navbarTitle ? (
                     siteConfig.navbarTitle.mode === "logo" ? (
                         <img src={logoSrc} alt={siteConfig.navbarTitle.text} class="h-[2.5rem] md:h-[3.25rem] md:[.enable-banner_&]:h-[2.5rem] md:[.enable-banner_&]:group-[.scrolled]:h-[3.25rem] max-w-full object-contain transition-all duration-300" loading="lazy" />
                     ) : (
                         <>
-                            <img src={iconSrc} alt={siteConfig.navbarTitle.text} class="h-[1.75rem] w-[1.75rem] mr-2 object-contain" loading="lazy" />
-                            <span class="dark:text-white text-black">{siteConfig.navbarTitle.text}</span>
+                            {iconSrc && <img src={iconSrc} alt={siteConfig.navbarTitle.text} class="h-[1.75rem] w-[1.75rem] mr-2 object-contain" loading="lazy" />}
+                            <span class="text-black dark:text-white text-xl md:text-2xl leading-none">{siteConfig.navbarTitle.text}</span>
                         </>
                     )
                 ) : (
                     <>
                         <Icon name="material-symbols:home-pin-outline" class="text-[1.75rem] mr-2" />
-                        <span class="dark:text-white text-black">{siteConfig.title}</span>
+                        <span class="text-black dark:text-white text-xl md:text-2xl leading-none">{siteConfig.title}</span>
                     </>
                 )}
             </div>
         </a>
-        <div id="navbar-links-container" class="hidden md:flex items-center space-x-1 transition-opacity duration-300">
+        <div id="navbar-links-container" class="hidden md:flex items-center gap-2 lg:gap-3 md:-translate-x-2 lg:-translate-x-3 transition-opacity duration-300">
             {links.map((l) => {
                 return <DropdownMenu link={l} />;
             })}
@@ -74,28 +72,12 @@ const iconSrc = rawIcon.match(/^(http|https|\/\/)/) ? rawIcon : url(rawIcon);
                 <Search client:only="svelte"></Search>
             </div>
             {siteConfig.toc.enable && <MobileTOC client:only="svelte"></MobileTOC>}
-            {!siteConfig.themeColor.fixed && (
-                    <button aria-label="Display Settings" class="btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90" id="display-settings-switch">
-                        <Icon name="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
-                    </button>
-            )}
-            <LayoutSwitchButton client:only="svelte" currentLayout={siteConfig.postListLayout.defaultMode}></LayoutSwitchButton>
-            <!-- 整体布局方案切换按钮：根据配置决定在哪些设备上显示 -->
-            <div class:list={[
-                modeSwitchDisplay === "off" ? "hidden" :
-                modeSwitchDisplay === "mobile" ? "block md:hidden" :
-                modeSwitchDisplay === "desktop" ? "hidden md:block" :
-                modeSwitchDisplay === "both" ? "block" : "hidden md:block"
-            ]}>
-                <WallpaperSwitch client:only="svelte"></WallpaperSwitch>
-            </div>
             <LightDarkSwitch client:only="svelte"></LightDarkSwitch>
             <button aria-label="Menu" name="Nav Menu" class="btn-plain scale-animation rounded-lg w-11 h-11 active:scale-90 md:!hidden" id="nav-menu-switch">
                 <Icon name="material-symbols:unfold-more" class="text-[1.25rem]"></Icon>
             </button>
         </div>
         <NavMenuPanel links={links}></NavMenuPanel>
-        <DisplaySettings client:only="svelte"></DisplaySettings>
     </div>
 </div>
 
@@ -111,7 +93,7 @@ const iconSrc = rawIcon.match(/^(http|https|\/\/)/) ? rawIcon : url(rawIcon);
 			}
 		};
 
-		// 鼠标移出/触摸结束时显示导航链接
+		// 鼠标移出/触摸结束时显示导航链�?
 		const showLinks = () => {
 			const navbar = document.getElementById("navbar");
 			if (navbar && !navbar.classList.contains("is-searching")) {
@@ -122,18 +104,18 @@ const iconSrc = rawIcon.match(/^(http|https|\/\/)/) ? rawIcon : url(rawIcon);
 		searchContainer.addEventListener("mouseenter", hideLinks);
 		searchContainer.addEventListener("mouseleave", showLinks);
 
-		// 移动端/触摸屏支持
+		// 移动�?触摸屏支�?
 		searchContainer.addEventListener("touchstart", hideLinks, { passive: true });
 		searchContainer.addEventListener("touchend", showLinks);
 
-		// 监听 navbar 的 class 变化，当搜索框折叠时确保链接显示
+		// 监听 navbar �?class 变化，当搜索框折叠时确保链接显示
 		const navbar = document.getElementById("navbar");
 		if (navbar) {
 			const observer = new MutationObserver((mutations) => {
 				mutations.forEach((mutation) => {
 					if (mutation.type === "attributes" && mutation.attributeName === "class") {
 						if (!navbar.classList.contains("is-searching")) {
-							// 搜索框已折叠，如果此时鼠标不在搜索容器内，强制显示链接
+							// 搜索框已折叠，如果此时鼠标不在搜索容器内，强制显示链�?
 							if (!searchContainer.matches(':hover')) {
 								showLinks();
 							}
@@ -147,15 +129,9 @@ const iconSrc = rawIcon.match(/^(http|https|\/\/)/) ? rawIcon : url(rawIcon);
 
 async function loadButtonScript() {
     try {
-        // 导入面板管理器
+        // 导入面板管理�?
         const { panelManager } = await import('../utils/panel-manager.js');
         
-        let settingBtn = document.getElementById("display-settings-switch");
-        if (settingBtn) {
-            settingBtn.onclick = async function () {
-                await panelManager.togglePanel('display-setting');
-            };
-        }
 
         let menuBtn = document.getElementById("nav-menu-switch");
         if (menuBtn) {
@@ -166,15 +142,6 @@ async function loadButtonScript() {
     } catch (error) {
         console.error('Failed to load panel manager:', error);
         // 备用逻辑
-        let settingBtn = document.getElementById("display-settings-switch");
-        if (settingBtn) {
-            settingBtn.onclick = function () {
-                let settingPanel = document.getElementById("display-setting");
-                if (settingPanel) {
-                    settingPanel.classList.toggle("float-panel-closed");
-                }
-            };
-        }
 
         let menuBtn = document.getElementById("nav-menu-switch");
         if (menuBtn) {
@@ -202,11 +169,11 @@ function initSemifullScrollDetection() {
         window.removeEventListener('scroll', window.semifullScrollHandler);
     }
     
-    // 获取当前是否为首页
+    // 获取当前是否为首�?
     // @ts-ignore
     const isHomePage = navbar.dataset.isHome === 'true';
 
-    // 如果不是首页，在平板/桌面端强制显示为scrolled状态
+    // 如果不是首页，在平板/桌面端强制显示为scrolled状�?
     if (!isHomePage) {
         navbar.classList.add('scrolled');
         return;
@@ -216,7 +183,7 @@ function initSemifullScrollDetection() {
     
     function updateNavbarState() {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const threshold = 50; // 滚动阈值，可以根据需要调整
+        const threshold = 50; // 滚动阈值，可以根据需要调�?
         
         if (navbar && scrollTop > threshold) {
             navbar.classList.add('scrolled');
@@ -234,22 +201,22 @@ function initSemifullScrollDetection() {
         }
     }
     
-    // 保存新的事件处理器引用
+    // 保存新的事件处理器引�?
     // @ts-ignore
     window.semifullScrollHandler = requestTick;
     
     // 监听滚动事件
     window.addEventListener('scroll', requestTick, { passive: true });
     
-    // 初始化状态
+    // 初始化状�?
     updateNavbarState();
 }
 
-// 将函数暴露到全局对象，供页面切换时调用
+// 将函数暴露到全局对象，供页面切换时调�?
 // @ts-ignore
 window.initSemifullScrollDetection = initSemifullScrollDetection;
 
-// 页面加载完成后初始化滚动检测
+// 页面加载完成后初始化滚动检�?
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initSemifullScrollDetection);
 } else {

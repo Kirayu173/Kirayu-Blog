@@ -4,6 +4,7 @@ import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import { scanAlbums } from "../utils/album-scanner";
+import { formatDateI18n } from "../utils/date-utils";
 
 // 检查相册页面是否启用
 if (!siteConfig.featurePages.albums) {
@@ -76,7 +77,7 @@ const albumsData = await scanAlbums();
                       </span>
                     )}
                   </div>
-                  <time>{new Date(album.date).toLocaleDateString('zh-CN')}</time>
+                  <time>{formatDateI18n(album.date)}</time>
                 </div>
                 
                 <!-- 标签 -->

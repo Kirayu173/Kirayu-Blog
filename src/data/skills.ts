@@ -1,29 +1,28 @@
-// Skill data configuration file
-// Used to manage data for the skill display page
+﻿// 技能数据配置文件
+// 用于管理技能展示页面数据
 
 export interface Skill {
 	id: string;
 	name: string;
 	description: string;
-	icon: string; // Iconify icon name
+	icon: string; // Iconify 图标名
 	category: "frontend" | "backend" | "database" | "tools" | "other";
 	level: "beginner" | "intermediate" | "advanced" | "expert";
 	experience: {
 		years: number;
 		months: number;
 	};
-	projects?: string[]; // Related project IDs
+	projects?: string[]; // 关联项目 ID
 	certifications?: string[];
-	color?: string; // Skill card theme color
+	color?: string; // 技能卡片主题色
 }
 
 export const skillsData: Skill[] = [
-	// Frontend Skills
+	// 前端技能
 	{
 		id: "javascript",
 		name: "JavaScript",
-		description:
-			"Modern JavaScript development, including ES6+ syntax, asynchronous programming, and modular development.",
+		description: "熟悉 ES6+、异步流程与浏览器生态，可独立完成前端交互开发。",
 		icon: "logos:javascript",
 		category: "frontend",
 		level: "advanced",
@@ -38,8 +37,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "typescript",
 		name: "TypeScript",
-		description:
-			"A type-safe superset of JavaScript that enhances code quality and development efficiency.",
+		description: "在项目中长期使用 TypeScript 进行类型建模与工程约束，提升可维护性。",
 		icon: "logos:typescript-icon",
 		category: "frontend",
 		level: "advanced",
@@ -50,8 +48,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "react",
 		name: "React",
-		description:
-			"A JavaScript library for building user interfaces, including Hooks, Context, and state management.",
+		description: "掌握 React 组件化开发、Hooks 与状态管理，能够构建中大型页面。",
 		icon: "logos:react",
 		category: "frontend",
 		level: "advanced",
@@ -62,8 +59,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "vue",
 		name: "Vue.js",
-		description:
-			"A progressive JavaScript framework that is easy to learn and use, suitable for rapid development.",
+		description: "熟悉 Vue 生态与常见工程实践，可快速搭建业务页面与组件库。",
 		icon: "logos:vue",
 		category: "frontend",
 		level: "intermediate",
@@ -74,8 +70,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "angular",
 		name: "Angular",
-		description:
-			"An enterprise-level frontend framework developed by Google, a complete single-page application solution.",
+		description: "了解 Angular 模块化与依赖注入机制，具备基础项目实践。",
 		icon: "logos:angular-icon",
 		category: "frontend",
 		level: "beginner",
@@ -86,8 +81,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "nextjs",
 		name: "Next.js",
-		description:
-			"A production-level React framework supporting SSR, SSG, and full-stack development.",
+		description: "能够使用 Next.js 完成 SSR/SSG 场景开发与路由、数据获取配置。",
 		icon: "logos:nextjs-icon",
 		category: "frontend",
 		level: "intermediate",
@@ -98,8 +92,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "nuxtjs",
 		name: "Nuxt.js",
-		description:
-			"An intuitive Vue.js framework supporting server-side rendering and static site generation.",
+		description: "熟悉 Nuxt 基础用法，可实现 Vue 场景下的服务端渲染与静态部署。",
 		icon: "logos:nuxt-icon",
 		category: "frontend",
 		level: "beginner",
@@ -110,8 +103,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "astro",
 		name: "Astro",
-		description:
-			"A modern static site generator supporting multi-framework integration and excellent performance.",
+		description: "擅长 Astro 内容站点构建，熟悉组件混合与性能优化思路。",
 		icon: "logos:astro-icon",
 		category: "frontend",
 		level: "advanced",
@@ -122,8 +114,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "tailwindcss",
 		name: "Tailwind CSS",
-		description:
-			"A utility-first CSS framework for rapidly building modern user interfaces.",
+		description: "熟练使用 Tailwind CSS 快速落地设计稿并维护统一设计规范。",
 		icon: "logos:tailwindcss-icon",
 		category: "frontend",
 		level: "advanced",
@@ -134,8 +125,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "sass",
 		name: "Sass/SCSS",
-		description:
-			"A CSS preprocessor providing advanced features like variables, nesting, and mixins.",
+		description: "能使用 Sass 进行变量、混入与模块化样式管理。",
 		icon: "logos:sass",
 		category: "frontend",
 		level: "intermediate",
@@ -146,8 +136,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "webpack",
 		name: "Webpack",
-		description:
-			"A static module bundler for modern JavaScript applications.",
+		description: "理解 Webpack 打包流程，可按需配置 loader、plugin 与构建优化。",
 		icon: "logos:webpack",
 		category: "frontend",
 		level: "intermediate",
@@ -158,8 +147,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "vite",
 		name: "Vite",
-		description:
-			"Next-generation frontend build tool with fast cold starts and hot updates.",
+		description: "熟悉 Vite 开发体验与构建配置，能处理多环境与插件集成。",
 		icon: "logos:vitejs",
 		category: "frontend",
 		level: "intermediate",
@@ -168,12 +156,11 @@ export const skillsData: Skill[] = [
 		color: "#646CFF",
 	},
 
-	// Backend Skills
+	// 后端技能
 	{
 		id: "nodejs",
 		name: "Node.js",
-		description:
-			"A JavaScript runtime based on Chrome V8 engine, used for server-side development.",
+		description: "可基于 Node.js 编写接口服务，处理中间件、鉴权与异步任务。",
 		icon: "logos:nodejs-icon",
 		category: "backend",
 		level: "intermediate",
@@ -184,8 +171,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "python",
 		name: "Python",
-		description:
-			"A general-purpose programming language suitable for web development, data analysis, machine learning, and more.",
+		description: "使用 Python 完成脚本开发与后端逻辑实现，兼顾可读性与效率。",
 		icon: "logos:python",
 		category: "backend",
 		level: "intermediate",
@@ -195,8 +181,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "java",
 		name: "Java",
-		description:
-			"A mainstream programming language for enterprise application development, cross-platform and object-oriented.",
+		description: "具备 Java 后端开发经验，熟悉面向对象设计与常见企业开发模式。",
 		icon: "logos:java",
 		category: "backend",
 		level: "intermediate",
@@ -207,8 +192,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "csharp",
 		name: "C#",
-		description:
-			"A modern object-oriented programming language developed by Microsoft, suitable for the .NET ecosystem.",
+		description: "掌握 C# 基础语法与 .NET 开发流程，可实现 API 与桌面逻辑。",
 		icon: "devicon:csharp",
 		category: "backend",
 		level: "intermediate",
@@ -219,8 +203,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "go",
 		name: "Go",
-		description:
-			"An efficient programming language developed by Google, suitable for cloud-native and microservices development.",
+		description: "了解 Go 并发模型与工程结构，可开发轻量级服务。",
 		icon: "logos:go",
 		category: "backend",
 		level: "beginner",
@@ -231,8 +214,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "rust",
 		name: "Rust",
-		description:
-			"A systems programming language focusing on safety, speed, and concurrency, with no garbage collector.",
+		description: "学习 Rust 所有权与类型系统，用于性能敏感场景的实践探索。",
 		icon: "logos:rust",
 		category: "backend",
 		level: "beginner",
@@ -243,8 +225,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "cpp",
 		name: "C++",
-		description:
-			"A high-performance systems programming language widely used in game development, system software, and embedded development.",
+		description: "具备 C++ 基础与工程实践，能够处理算法与性能优化问题。",
 		icon: "logos:c-plusplus",
 		category: "backend",
 		level: "intermediate",
@@ -255,8 +236,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "c",
 		name: "C",
-		description:
-			"A low-level systems programming language, the foundation for operating systems and embedded systems development.",
+		description: "掌握 C 语言底层开发基础，能进行系统级与嵌入式相关实践。",
 		icon: "logos:c",
 		category: "backend",
 		level: "intermediate",
@@ -267,8 +247,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "kotlin",
 		name: "Kotlin",
-		description:
-			"A modern programming language developed by JetBrains, fully compatible with Java, the preferred choice for Android development.",
+		description: "熟悉 Kotlin 语法与协程基础，可用于 Android 与后端实验项目。",
 		icon: "logos:kotlin-icon",
 		category: "backend",
 		level: "beginner",
@@ -279,8 +258,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "swift",
 		name: "Swift",
-		description:
-			"A modern programming language developed by Apple for iOS, macOS, watchOS, and tvOS development.",
+		description: "了解 Swift 语法与 iOS 开发基础，能够实现简单移动端功能。",
 		icon: "logos:swift",
 		category: "backend",
 		level: "beginner",
@@ -291,8 +269,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "ruby",
 		name: "Ruby",
-		description:
-			"A dynamic, open-source programming language focusing on simplicity and productivity, the foundation of the Rails framework.",
+		description: "掌握 Ruby 基础与脚本能力，可进行快速原型与工具开发。",
 		icon: "logos:ruby",
 		category: "backend",
 		level: "beginner",
@@ -303,8 +280,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "php",
 		name: "PHP",
-		description:
-			"A widely-used server-side scripting language, particularly suitable for web development.",
+		description: "具备 PHP Web 开发经验，可完成常见后台业务与部署配置。",
 		icon: "logos:php",
 		category: "backend",
 		level: "intermediate",
@@ -315,7 +291,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "express",
 		name: "Express.js",
-		description: "A fast, minimalist Node.js web application framework.",
+		description: "熟悉 Express 路由与中间件机制，可快速搭建 RESTful API。",
 		icon: "simple-icons:express",
 		category: "backend",
 		level: "intermediate",
@@ -326,8 +302,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "spring",
 		name: "Spring Boot",
-		description:
-			"The most popular enterprise application development framework in the Java ecosystem.",
+		description: "掌握 Spring 生态核心概念，能开发基础企业级后端服务。",
 		icon: "logos:spring-icon",
 		category: "backend",
 		level: "intermediate",
@@ -338,8 +313,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "django",
 		name: "Django",
-		description:
-			"A high-level Python web framework with rapid development and clean, pragmatic design.",
+		description: "熟悉 Django 的 MTV 架构与管理后台，可快速构建业务系统。",
 		icon: "logos:django-icon",
 		category: "backend",
 		level: "beginner",
@@ -348,12 +322,11 @@ export const skillsData: Skill[] = [
 		color: "#092E20",
 	},
 
-	// Database Skills
+	// 数据库技能
 	{
 		id: "mysql",
 		name: "MySQL",
-		description:
-			"The world's most popular open-source relational database management system, widely used in web applications.",
+		description: "熟练使用 MySQL 进行表结构设计、索引优化与常见 SQL 调优。",
 		icon: "logos:mysql-icon",
 		category: "database",
 		level: "advanced",
@@ -364,8 +337,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "postgresql",
 		name: "PostgreSQL",
-		description:
-			"A powerful open-source relational database management system.",
+		description: "了解 PostgreSQL 特性与事务机制，可处理结构化数据场景。",
 		icon: "logos:postgresql",
 		category: "database",
 		level: "intermediate",
@@ -376,8 +348,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "redis",
 		name: "Redis",
-		description:
-			"A high-performance in-memory data structure store, used as a database, cache, and message broker.",
+		description: "会使用 Redis 做缓存、会话与基础消息场景优化。",
 		icon: "logos:redis",
 		category: "database",
 		level: "intermediate",
@@ -388,8 +359,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "mongodb",
 		name: "MongoDB",
-		description:
-			"A document-oriented NoSQL database with a flexible data model.",
+		description: "熟悉 MongoDB 文档模型与查询语法，适用于非结构化数据场景。",
 		icon: "logos:mongodb-icon",
 		category: "database",
 		level: "intermediate",
@@ -399,8 +369,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "sqlite",
 		name: "SQLite",
-		description:
-			"A lightweight embedded relational database, suitable for mobile applications and small projects.",
+		description: "掌握 SQLite 轻量数据库使用，适合本地存储与小型应用。",
 		icon: "simple-icons:sqlite",
 		category: "database",
 		level: "intermediate",
@@ -411,8 +380,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "firebase",
 		name: "Firebase",
-		description:
-			"Google's mobile and web application development platform providing real-time database and authentication services.",
+		description: "能够使用 Firebase 快速完成鉴权、存储与实时数据能力接入。",
 		icon: "simple-icons:firebase",
 		category: "database",
 		level: "intermediate",
@@ -425,8 +393,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "git",
 		name: "Git",
-		description:
-			"A distributed version control system, an essential tool for code management and team collaboration.",
+		description: "熟练使用 Git 进行分支协作、代码审查与版本管理。",
 		icon: "logos:git-icon",
 		category: "tools",
 		level: "advanced",
@@ -436,8 +403,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "vscode",
 		name: "VS Code",
-		description:
-			"A lightweight but powerful code editor with a rich plugin ecosystem.",
+		description: "日常主力编辑器，熟悉插件体系、调试与高效开发配置。",
 		icon: "logos:visual-studio-code",
 		category: "tools",
 		level: "expert",
@@ -447,8 +413,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "webstorm",
 		name: "WebStorm",
-		description:
-			"A professional JavaScript and web development IDE developed by JetBrains with intelligent code assistance.",
+		description: "熟悉 WebStorm 的重构、调试与前端工程辅助能力。",
 		icon: "logos:webstorm",
 		category: "tools",
 		level: "advanced",
@@ -459,8 +424,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "intellij",
 		name: "IntelliJ IDEA",
-		description:
-			"JetBrains flagship IDE, the preferred tool for Java development with powerful intelligent coding assistance.",
+		description: "熟悉 IntelliJ IDEA 在 Java 开发中的调试、重构与效率工具。",
 		icon: "logos:intellij-idea",
 		category: "tools",
 		level: "intermediate",
@@ -471,8 +435,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "pycharm",
 		name: "PyCharm",
-		description:
-			"A professional Python IDE by JetBrains providing intelligent code analysis and debugging features.",
+		description: "熟悉 PyCharm 的虚拟环境、调试与工程管理能力。",
 		icon: "logos:pycharm",
 		category: "tools",
 		level: "intermediate",
@@ -483,8 +446,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "rider",
 		name: "Rider",
-		description:
-			"A cross-platform .NET IDE by JetBrains supporting development in C#, VB.NET, F#, and other languages.",
+		description: "了解 Rider 的 .NET 开发流程，可进行跨平台 C# 项目开发。",
 		icon: "logos:rider",
 		category: "tools",
 		level: "beginner",
@@ -495,8 +457,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "goland",
 		name: "GoLand",
-		description:
-			"A professional Go language IDE by JetBrains providing intelligent coding assistance and debugging tools.",
+		description: "熟悉 GoLand 常用功能，可提升 Go 项目的编码与调试效率。",
 		icon: "logos:goland",
 		category: "tools",
 		level: "beginner",
@@ -507,8 +468,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "docker",
 		name: "Docker",
-		description:
-			"A containerization platform that simplifies application deployment and environment management.",
+		description: "可使用 Docker 进行容器化开发、镜像构建与环境一致性管理。",
 		icon: "logos:docker-icon",
 		category: "tools",
 		level: "intermediate",
@@ -518,8 +478,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "kubernetes",
 		name: "Kubernetes",
-		description:
-			"A container orchestration platform for automating deployment, scaling, and management of containerized applications.",
+		description: "了解 Kubernetes 基础资源与部署流程，可完成入门级编排。",
 		icon: "logos:kubernetes",
 		category: "tools",
 		level: "beginner",
@@ -530,7 +489,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "nginx",
 		name: "Nginx",
-		description: "A high-performance web server and reverse proxy server.",
+		description: "熟悉 Nginx 反向代理、静态资源托管与负载均衡配置。",
 		icon: "logos:nginx",
 		category: "tools",
 		level: "intermediate",
@@ -541,8 +500,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "apache",
 		name: "Apache HTTP Server",
-		description:
-			"The world's most popular web server software, a stable and reliable HTTP server.",
+		description: "了解 Apache HTTP Server 常见配置与传统 Web 服务部署方式。",
 		icon: "logos:apache",
 		category: "tools",
 		level: "intermediate",
@@ -553,8 +511,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "openresty",
 		name: "OpenResty",
-		description:
-			"A high-performance web platform based on Nginx and LuaJIT, supporting dynamic web application development.",
+		description: "掌握 OpenResty 基础，能结合 Lua 实现网关与动态路由逻辑。",
 		icon: "simple-icons:nginx",
 		category: "tools",
 		level: "beginner",
@@ -565,8 +522,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "tomcat",
 		name: "Apache Tomcat",
-		description:
-			"A Java Servlet container and web server, the standard deployment environment for Java web applications.",
+		description: "熟悉 Tomcat 部署与调优，用于 Java Web 应用运行。",
 		icon: "logos:tomcat",
 		category: "tools",
 		level: "intermediate",
@@ -577,8 +533,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "aws",
 		name: "AWS",
-		description:
-			"Amazon's cloud platform providing comprehensive cloud computing solutions.",
+		description: "具备 AWS 基础使用经验，可完成常见云上部署与资源配置。",
 		icon: "logos:aws",
 		category: "tools",
 		level: "intermediate",
@@ -589,8 +544,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "linux",
 		name: "Linux",
-		description:
-			"An open-source operating system, the preferred choice for server deployment and development environments.",
+		description: "熟悉 Linux 常用命令、服务管理与 Shell 自动化脚本。",
 		icon: "logos:linux-tux",
 		category: "tools",
 		level: "intermediate",
@@ -601,8 +555,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "postman",
 		name: "Postman",
-		description:
-			"An API development and testing tool that simplifies API design, testing, and documentation.",
+		description: "熟练使用 Postman 进行接口调试、测试集合与文档协作。",
 		icon: "logos:postman-icon",
 		category: "tools",
 		level: "intermediate",
@@ -613,8 +566,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "figma",
 		name: "Figma",
-		description:
-			"A collaborative interface design tool for UI/UX design and prototyping.",
+		description: "可使用 Figma 进行界面设计、组件协作与交互原型制作。",
 		icon: "logos:figma",
 		category: "tools",
 		level: "intermediate",
@@ -624,7 +576,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "photoshop",
 		name: "Photoshop",
-		description: "Professional image editing and design software.",
+		description: "熟悉 Photoshop 图像处理流程，可完成 UI 资源与视觉优化。",
 		icon: "logos:adobe-photoshop",
 		category: "tools",
 		level: "intermediate",
@@ -633,12 +585,11 @@ export const skillsData: Skill[] = [
 		color: "#31A8FF",
 	},
 
-	// Other Skills
+	// 其他技能
 	{
 		id: "graphql",
 		name: "GraphQL",
-		description:
-			"An API query language and runtime providing a more efficient, powerful, and flexible way to fetch data.",
+		description: "了解 GraphQL Schema 与查询机制，可用于高效聚合接口设计。",
 		icon: "logos:graphql",
 		category: "other",
 		level: "beginner",
@@ -649,8 +600,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "elasticsearch",
 		name: "Elasticsearch",
-		description:
-			"A distributed search and analytics engine used for full-text search and data analysis.",
+		description: "掌握 Elasticsearch 基础检索能力，可实现全文搜索场景。",
 		icon: "logos:elasticsearch",
 		category: "other",
 		level: "beginner",
@@ -661,8 +611,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "jest",
 		name: "Jest",
-		description:
-			"A JavaScript testing framework focused on simplicity and ease of use.",
+		description: "熟悉 Jest 单元测试与断言体系，能为前后端模块编写测试。",
 		icon: "logos:jest",
 		category: "other",
 		level: "intermediate",
@@ -673,8 +622,7 @@ export const skillsData: Skill[] = [
 	{
 		id: "cypress",
 		name: "Cypress",
-		description:
-			"A modern end-to-end testing framework for web applications.",
+		description: "了解 Cypress 端到端测试流程，可覆盖关键用户路径回归。",
 		icon: "logos:cypress-icon",
 		category: "other",
 		level: "beginner",
@@ -684,7 +632,7 @@ export const skillsData: Skill[] = [
 	},
 ];
 
-// Get skill statistics
+// 获取技能统计
 export const getSkillStats = () => {
 	const total = skillsData.length;
 	const byLevel = {
@@ -705,7 +653,7 @@ export const getSkillStats = () => {
 	return { total, byLevel, byCategory };
 };
 
-// Get skills by category
+// 按分类获取技能
 export const getSkillsByCategory = (category?: string) => {
 	if (!category || category === "all") {
 		return skillsData;
@@ -713,14 +661,14 @@ export const getSkillsByCategory = (category?: string) => {
 	return skillsData.filter((s) => s.category === category);
 };
 
-// Get advanced skills
+// 获取高阶技能
 export const getAdvancedSkills = () => {
 	return skillsData.filter(
 		(s) => s.level === "advanced" || s.level === "expert",
 	);
 };
 
-// Calculate total years of experience
+// 计算总经验年限
 export const getTotalExperience = () => {
 	const totalMonths = skillsData.reduce((total, skill) => {
 		return total + skill.experience.years * 12 + skill.experience.months;
@@ -730,3 +678,5 @@ export const getTotalExperience = () => {
 		months: totalMonths % 12,
 	};
 };
+
+

@@ -1,6 +1,5 @@
 ---
 import type { MarkdownHeading } from "astro";
-import Announcement from "@/components/widget/Announcement.astro";
 import Calendar from "@/components/widget/Calendar.astro";
 import Categories from "@/components/widget/Categories.astro";
 import MusicPlayer from "@/components/widget/MusicPlayer.svelte";
@@ -27,7 +26,6 @@ const stickyComponents = widgetManager.getComponentsByPosition(
 // 组件映射表
 const componentMap = {
 	profile: Profile,
-	announcement: Announcement,
 	categories: Categories,
 	tags: Tags,
 	toc: TOC,

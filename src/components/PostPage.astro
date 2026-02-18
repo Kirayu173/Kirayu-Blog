@@ -18,13 +18,16 @@ const hasRightSidebars =
 
 // 根据配置设置初始布局模式
 const defaultLayout = siteConfig.postListLayout.defaultMode || "list";
-const initialLayoutClass = defaultLayout === "grid" ? "grid-mode" : "list-mode";
+const allowLayoutSwitch = siteConfig.postListLayout.allowSwitch !== false;
+const initialLayoutClass =
+	allowLayoutSwitch && defaultLayout === "grid" ? "grid-mode" : "list-mode";
 ---
 
 <div
 	id="post-list-container"
 	class={`transition-all duration-500 ease-in-out rounded-[var(--radius-large)] bg-[var(--card-bg)] md:bg-transparent mb-4 ${initialLayoutClass}`}
 	data-default-layout={defaultLayout}
+	data-allow-layout-switch={allowLayoutSwitch ? "true" : "false"}
 	data-both-sidebars={hasRightSidebars}
 >
 	{
@@ -51,7 +54,17 @@ const initialLayoutClass = defaultLayout === "grid" ? "grid-mode" : "list-mode";
 			const savedLayout = localStorage.getItem("postListLayout");
 			const defaultLayout =
 				postListContainer.getAttribute("data-default-layout") || "list";
-			const currentLayout = savedLayout || defaultLayout;
+			const allowLayoutSwitch =
+				postListContainer.getAttribute("data-allow-layout-switch") ===
+				"true";
+			const currentLayout = allowLayoutSwitch
+				? savedLayout || defaultLayout
+				: "list";
+
+			if (!allowLayoutSwitch) {
+				localStorage.setItem("postListLayout", "list");
+				sessionStorage.setItem("postListLayout", "list");
+			}
 
 			// 检查现有状态是否一致，避免重复初始化
 			const hasGridClass =
@@ -135,7 +148,13 @@ const initialLayoutClass = defaultLayout === "grid" ? "grid-mode" : "list-mode";
 					document
 						.getElementById("post-list-container")
 						?.getAttribute("data-default-layout") || "list";
-				updatePostListLayout(savedLayout || defaultLayout);
+				const allowLayoutSwitch =
+					document
+						.getElementById("post-list-container")
+						?.getAttribute("data-allow-layout-switch") === "true";
+				updatePostListLayout(
+					allowLayoutSwitch ? savedLayout || defaultLayout : "list",
+				);
 			}
 		}, 100);
 	});
