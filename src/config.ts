@@ -116,12 +116,8 @@ export const siteConfig: SiteConfig = {
 	banner: {
 		// 閺€顖涘瘮閸楁洖绱堕崶鍓у閹存牕娴橀悧鍥ㄦ殶缂佸嫸绱濊ぐ鎾存殶缂佸嫰鏆辨惔?> 1 閺冩儼鍤滈崝銊ユ儙閻劏鐤嗛幘?
 		src: {
-			desktop: [
-				"/assets/desktop-banner/kirayu-home-banner.jpg",
-			], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
-			mobile: [
-				"/assets/desktop-banner/kirayu-home-banner.jpg",
-			], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
+			desktop: ["/assets/desktop-banner/kirayu-home-banner.jpg"], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
+			mobile: ["/assets/desktop-banner/kirayu-home-banner.jpg"], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
 		}, // 娴ｈ法鏁ら張顒€婀村Ο顏勭畽閸ュ墽澧?
 
 		position: "center", // 缁涘鎮撴禍?object-position閿涘奔绮庨弨顖涘瘮 'top', 'center', 'bottom'閵嗗倿绮拋銈勮礋 'center'
@@ -148,13 +144,14 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 閸︺劋瀵屾い鍨▔缁€楦垮殰鐎规矮绠熼弬鍥ㄦ拱
-			title: "我的小天地", // 主页横幅主标题
+			title: "Kirayu's Lab", // 主页横幅主标题
 			subtitle: [
-				"记录灵感、生活与代码",
-				"把热爱写进每一个普通日常",
-				"愿你在这里找到片刻宁静",
-				"慢慢更新，也慢慢成长",
-				"今天也是值得认真生活的一天",
+				"Some things endure beyond time.",
+				"Time passes. Meaning remains.",
+				"What is built with purpose does not fade.",
+				"Memory outlives the moment.",
+				"We persist.",
+				"Ever ready.",
 			],
 			typewriter: {
 				enable: true, // 閸氼垳鏁ら崜顖涚垼妫版ɑ澧︾€涙婧€閺佸牊鐏?
@@ -206,9 +203,9 @@ export const siteConfig: SiteConfig = {
 		},
 		cjkFont: {
 			// 娑擃厽妫╅棅鈺佺摟娴?- 娴ｆ粈璐熼崶鐐衡偓鈧€涙ぞ缍?
-            fontFamily: "萝莉体 第二版",
+			fontFamily: "萝莉体 第二版",
 			fontWeight: "500",
-            localFonts: ["萝莉体 第二版.ttf"],
+			localFonts: ["萝莉体 第二版.ttf"],
 			enableCompress: true, // 閸氼垳鏁ょ€涙ぞ缍嬬€涙劙娉︽导妯哄閿涘苯鍣虹亸鎴濈摟娴ｆ挻鏋冩禒璺恒亣鐏?
 		},
 	},
@@ -216,12 +213,8 @@ export const siteConfig: SiteConfig = {
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	src: {
-		desktop: [
-			"/assets/desktop-banner/kirayu-home-banner.jpg",
-		], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
-		mobile: [
-			"/assets/desktop-banner/kirayu-home-banner.jpg",
-		], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
+		desktop: ["/assets/desktop-banner/kirayu-home-banner.jpg"], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
+		mobile: ["/assets/desktop-banner/kirayu-home-banner.jpg"], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
 	}, // 娴ｈ法鏁ら張顒€婀村Ο顏勭畽閸ュ墽澧?
 	position: "center", // 婢逛胶鐒婃担宥囩枂閿涘瞼鐡戦崥灞肩艾 object-position
 	carousel: {
@@ -317,7 +310,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 閻╃顕禍?/src 閻╊喖缍嶉妴鍌氼洤閺嬫粈浜?'/' 瀵偓婢惰揪绱濋崚娆戞祲鐎甸€涚艾 /public 閻╊喖缍?
+	avatar: "assets/images/kirayu-avatar.jpg", // 閻╃顕禍?/src 閻╊喖缍嶉妴鍌氼洤閺嬫粈浜?'/' 瀵偓婢惰揪绱濋崚娆戞祲鐎甸€涚艾 /public 閻╊喖缍?
 	name: "Kirayu",
 	bio: "with his agent , Axis",
 	typewriter: {
@@ -412,7 +405,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 	// 娓氀嗙珶閺嶅繒绮嶆禒璺虹潣閹囧帳缂冾喖鍨悰?
 	properties: [
 		{
-            type: "profile",
+			type: "profile",
 			// 缂佸嫪娆㈡担宥囩枂閿?top" 鐞涖劎銇氶崶鍝勭暰閸︺劑銆婇柈?
 			position: "top",
 			// CSS 缁鎮曢敍宀€鏁ゆ禍搴＄安閻劍鐗卞蹇撴嫲閸斻劎鏁?
@@ -564,5 +557,3 @@ export const widgetConfigs = {
 	pio: pioConfig,
 	share: shareConfig,
 } as const;
-
-

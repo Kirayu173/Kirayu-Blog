@@ -4,6 +4,7 @@ export interface Props {
 	speed?: number;
 	deleteSpeed?: number;
 	pauseTime?: number;
+	random?: boolean;
 	class?: string;
 }
 
@@ -12,12 +13,13 @@ const {
 	speed = 100,
 	deleteSpeed = 50,
 	pauseTime = 2000,
+	random = false,
 	class: className = "",
 } = Astro.props;
 const textData = Array.isArray(text) ? JSON.stringify(text) : text;
 ---
 
-<span class={`typewriter ${className}`} data-text={textData} data-speed={speed} data-delete-speed={deleteSpeed} data-pause-time={pauseTime}></span>
+<span class={`typewriter ${className}`} data-text={textData} data-speed={speed} data-delete-speed={deleteSpeed} data-pause-time={pauseTime} data-random={random}></span>
 
 <script>
 class TypewriterEffect {
@@ -27,6 +29,7 @@ class TypewriterEffect {
     private speed: number;
     private deleteSpeed: number;
     private pauseTime: number;
+    private randomOrder: boolean = false;
     private currentIndex: number = 0;
     private isDeleting: boolean = false;
     private timeoutId: number | null = null;
@@ -46,11 +49,15 @@ class TypewriterEffect {
         this.speed = parseInt(element.dataset.speed || '100');
         this.deleteSpeed = parseInt(element.dataset.deleteSpeed || '50');
         this.pauseTime = parseInt(element.dataset.pauseTime || '2000');
+        this.randomOrder = element.dataset.random === 'true';
         
         // 如果有多条文本且未启用打字机效果，随机显示一条
         if (this.texts.length > 1 && !this.isTypewriterEnabled()) {
             this.showRandomText();
         } else {
+            if (this.randomOrder && this.texts.length > 1) {
+                this.currentTextIndex = Math.floor(Math.random() * this.texts.length);
+            }
             this.start();
         }
     }
@@ -76,6 +83,15 @@ class TypewriterEffect {
         return this.texts[this.currentTextIndex] || '';
     }
 
+    private getNextRandomIndex(): number {
+        if (this.texts.length <= 1) return 0;
+        let next = this.currentTextIndex;
+        while (next === this.currentTextIndex) {
+            next = Math.floor(Math.random() * this.texts.length);
+        }
+        return next;
+    }
+
     private type() {
         const currentText = this.getCurrentText();
         
@@ -88,7 +104,9 @@ class TypewriterEffect {
             } else {
                 // 删除完成，切换到下一条文本
                 this.isDeleting = false;
-                this.currentTextIndex = (this.currentTextIndex + 1) % this.texts.length;
+                this.currentTextIndex = this.randomOrder
+                    ? this.getNextRandomIndex()
+                    : (this.currentTextIndex + 1) % this.texts.length;
                 this.timeoutId = window.setTimeout(() => this.type(), this.speed);
             }
         } else {
