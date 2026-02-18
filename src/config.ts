@@ -38,7 +38,7 @@ export const siteConfig: SiteConfig = {
 	// 閻楃澹婃い鐢告桨瀵偓閸忔娊鍘ょ純顕嗙礄閸忔娊妫撮張顏冨▏閻劎娈戞い鐢告桨閺堝濮禍搴㈠絹閸?SEO閿涘苯鍙ч梻顓炴倵鐠囩柉顔囧妤€婀?navbarConfig 娑擃厾些闂勩倕顕惔鏃堟懠閹恒儻绱?
 	featurePages: {
 		anime: true, // 閻ｎ亜澧芥い鐢告桨瀵偓閸?
-		diary: true, // 閺冦儴顔囨い鐢告桨瀵偓閸?
+		diary: false, // 閺冦儴顔囨い鐢告桨瀵偓閸?
 		friends: true, // 閸欏鎽兼い鐢告桨瀵偓閸?
 		projects: true, // 妞ゅ湱娲版い鐢告桨瀵偓閸?
 		skills: true, // 閹垛偓閼充粙銆夐棃銏犵磻閸?
@@ -118,20 +118,10 @@ export const siteConfig: SiteConfig = {
 		// 閺€顖涘瘮閸楁洖绱堕崶鍓у閹存牕娴橀悧鍥ㄦ殶缂佸嫸绱濊ぐ鎾存殶缂佸嫰鏆辨惔?> 1 閺冩儼鍤滈崝銊ユ儙閻劏鐤嗛幘?
 		src: {
 			desktop: [
-				"/assets/desktop-banner/1.webp",
-				"/assets/desktop-banner/2.webp",
-				"/assets/desktop-banner/3.webp",
-				"/assets/desktop-banner/4.webp",
-				"/assets/desktop-banner/5.webp",
-				"/assets/desktop-banner/6.webp",
+				"/assets/desktop-banner/kirayu-home-banner.jpg",
 			], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
 			mobile: [
-				"/assets/mobile-banner/1.webp",
-				"/assets/mobile-banner/2.webp",
-				"/assets/mobile-banner/3.webp",
-				"/assets/mobile-banner/4.webp",
-				"/assets/mobile-banner/5.webp",
-				"/assets/mobile-banner/6.webp",
+				"/assets/desktop-banner/kirayu-home-banner.jpg",
 			], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
 		}, // 娴ｈ法鏁ら張顒€婀村Ο顏勭畽閸ュ墽澧?
 
@@ -228,20 +218,10 @@ export const siteConfig: SiteConfig = {
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	src: {
 		desktop: [
-			"/assets/desktop-banner/1.webp",
-			"/assets/desktop-banner/2.webp",
-			"/assets/desktop-banner/3.webp",
-			"/assets/desktop-banner/4.webp",
-			"/assets/desktop-banner/5.webp",
-			"/assets/desktop-banner/6.webp",
+			"/assets/desktop-banner/kirayu-home-banner.jpg",
 		], // 濡楀矂娼板Ο顏勭畽閸ュ墽澧?
 		mobile: [
-			"/assets/mobile-banner/1.webp",
-			"/assets/mobile-banner/2.webp",
-			"/assets/mobile-banner/3.webp",
-			"/assets/mobile-banner/4.webp",
-			"/assets/mobile-banner/5.webp",
-			"/assets/mobile-banner/6.webp",
+			"/assets/desktop-banner/kirayu-home-banner.jpg",
 		], // 缁夎濮╁Ο顏勭畽閸ュ墽澧?
 	}, // 娴ｈ法鏁ら張顒€婀村Ο顏勭畽閸ュ墽澧?
 	position: "center", // 婢逛胶鐒婃担宥囩枂閿涘瞼鐡戦崥灞肩艾 object-position
@@ -281,11 +261,6 @@ export const navBarConfig: NavBarConfig = {
 					name: "Anime",
 					url: "/anime/",
 					icon: "material-symbols:movie",
-				},
-				{
-					name: "Diary",
-					url: "/diary/",
-					icon: "material-symbols:book",
 				},
 				{
 					name: "Gallery",
