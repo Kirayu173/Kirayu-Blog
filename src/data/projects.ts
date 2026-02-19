@@ -6,7 +6,7 @@ export interface Project {
 	title: string;
 	description: string;
 	image: string;
-	category: "web" | "mobile" | "desktop" | "other";
+	category: "web" | "mobile" | "desktop" | "other" | "ai";
 	techStack: string[];
 	status: "completed" | "in-progress" | "planned";
 	liveDemo?: string;
@@ -25,7 +25,7 @@ export const projectsData: Project[] = [
 		description:
 			"超轻量个人 AI 智能体（fork 自 HKUDS/nanobot）：在原本极简nanobot架构上增添了多项实用能力",
 		image: "",
-		category: "other",
+		category: "ai",
 		techStack: ["Python", "Agent", "MCP"],
 		status: "in-progress",
 		startDate: "2026-02-08",
@@ -40,7 +40,7 @@ export const projectsData: Project[] = [
 		description:
 			"基于知识图谱的《计算机组成原理》领域智能体（KGQA/RAG方向）",
 		image: "",
-		category: "other",
+		category: "ai",
 		techStack: ["Python", "RAG", "Knowledge Graph", "Agent"],
 		status: "in-progress",
 		startDate: "2024-06-15",
@@ -116,4 +116,3 @@ export const getAllTechStack = () => {
 	});
 	return Array.from(techSet).sort();
 };
-

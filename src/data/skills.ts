@@ -6,7 +6,13 @@ export interface Skill {
 	name: string;
 	description: string;
 	icon: string; // Iconify 图标名
-	category: "frontend" | "backend" | "database" | "tools" | "other";
+	category:
+		| "frontend"
+		| "backend"
+		| "database"
+		| "tools"
+		| "ai"
+		| "other";
 	level: "beginner" | "intermediate" | "advanced" | "expert";
 	experience: {
 		years: number;
@@ -33,6 +39,7 @@ export const getSkillStats = () => {
 		backend: skillsData.filter((s) => s.category === "backend").length,
 		database: skillsData.filter((s) => s.category === "database").length,
 		tools: skillsData.filter((s) => s.category === "tools").length,
+		ai: skillsData.filter((s) => s.category === "ai").length,
 		other: skillsData.filter((s) => s.category === "other").length,
 	};
 

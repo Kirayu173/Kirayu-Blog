@@ -181,12 +181,10 @@ export const siteConfig: SiteConfig = {
 	showCoverInContent: true, // 閸︺劍鏋冪粩鐘插敶鐎瑰綊銆夐弰鍓с仛閺傚洨鐝风亸渚€娼?
 	generateOgImages: false, // 閸氼垳鏁ら悽鐔稿灇OpenGraph閸ュ墽澧栭崝鐔诲厴,濞夈劍鍓板鈧崥顖氭倵鐟曚焦瑕嗛弻鎾崇发闂€鎸庢闂傝揪绱濇稉宥呯紦鐠侇喗婀伴崷鎷岀殶鐠囨洜娈戦弮璺衡偓娆忕磻閸?
 	favicon: [
-		// 閻ｆ瑧鈹栨禒銉ゅ▏閻劑绮拋?favicon
-		// {
-		//   src: '/favicon/icon.png',    // 閸ョ偓鐖ｉ弬鍥︽鐠侯垰绶?
-		//   theme: 'light',              // 閸欘垶鈧绱濋幐鍥х暰娑撳顣?'light' | 'dark'
-		//   sizes: '32x32',              // 閸欘垶鈧绱濋崶鐐垼婢堆冪毈
-		// }
+		{
+			src: "/favicon/kirayu-tab-icon.png",
+			sizes: "32x32",
+		},
 	],
 
 	// 鐎涙ぞ缍嬮柊宥囩枂

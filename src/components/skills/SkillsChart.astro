@@ -60,6 +60,7 @@ interface Props {
 			backend: number;
 			database: number;
 			tools: number;
+			ai: number;
 			other: number;
 		};
 	};
@@ -84,6 +85,7 @@ const categoryColors = {
 	backend: "#8B5CF6", // violet-500
 	database: "#10B981", // emerald-500
 	tools: "#F59E0B", // amber-500
+	ai: "#6366F1", // indigo-500
 	other: "#EC4899", // pink-500
 };
 
@@ -132,6 +134,11 @@ const categoryData = [
 		name: i18n(I18nKey.skillsTools),
 		value: stats.byCategory.tools,
 		color: categoryColors.tools,
+	},
+	{
+		name: i18n(I18nKey.skillsAI),
+		value: stats.byCategory.ai,
+		color: categoryColors.ai,
 	},
 	{
 		name: i18n(I18nKey.skillsOther),
