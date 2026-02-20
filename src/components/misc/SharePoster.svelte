@@ -361,6 +361,24 @@ function closeModal() {
 	showModal = false;
 }
 
+function handleModalBackdropClick(event: MouseEvent) {
+	if (event.target === event.currentTarget) {
+		closeModal();
+	}
+}
+
+function handleModalBackdropKeydown(event: KeyboardEvent) {
+	if (event.key === "Escape") {
+		closeModal();
+		return;
+	}
+
+	if (event.key === "Enter" || event.key === " ") {
+		event.preventDefault();
+		closeModal();
+	}
+}
+
 let copied = false;
 const COPY_FEEDBACK_DURATION = 2000;
 
@@ -409,8 +427,21 @@ function portal(node: HTMLElement) {
 </button>
 
 {#if showModal}
-  <div use:portal class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity" on:click={closeModal}>
-    <div class="bg-white dark:bg-gray-800 rounded-2xl max-w-sm w-full max-h-[90vh] overflow-y-auto flex flex-col shadow-2xl transform transition-all" on:click|stopPropagation>
+  <div
+    use:portal
+    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity"
+    role="button"
+    tabindex="0"
+    aria-label="Close Poster Modal"
+    on:click={handleModalBackdropClick}
+    on:keydown={handleModalBackdropKeydown}
+  >
+    <div
+      class="bg-white dark:bg-gray-800 rounded-2xl max-w-sm w-full max-h-[90vh] overflow-y-auto flex flex-col shadow-2xl transform transition-all"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Share Poster"
+    >
       
       <div class="p-6 flex justify-center bg-gray-50 dark:bg-gray-900 min-h-[200px] items-center">
         {#if posterImage}

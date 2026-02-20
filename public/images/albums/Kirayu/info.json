@@ -1,0 +1,21 @@
+{
+  "title": "Kirayu",
+  "description": "",
+  "date": "2026-02-20",
+  "mode": "external",
+  "cover": "/images/albums/Kirayu/20230421062918_532ec.png",
+  "layout": "grid",
+  "columns": 3,
+  "photos": [
+    {
+      "src": "/images/albums/Kirayu/20230421062918_532ec.png",
+      "alt": "20230421062918_532ec",
+      "title": "20230421062918_532ec"
+    },
+    {
+      "src": "/images/albums/Kirayu/R-C.jpg",
+      "alt": "R-C",
+      "title": "R-C"
+    }
+  ]
+}
