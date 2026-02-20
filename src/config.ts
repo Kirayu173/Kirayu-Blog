@@ -258,7 +258,7 @@ export const navBarConfig: NavBarConfig = {
 					icon: "material-symbols:photo-library",
 				},
 				{
-					name: "Devices",
+					name: "设备",
 					url: "devices/",
 					icon: "material-symbols:devices",
 					external: false,
