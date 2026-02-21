@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw与Nanobot引领的下一代智能体范式"
-description: "这段时间做个人 AI 助手的过程的大致记录，记录了架构取舍、功能定制、实际使用感受，以及对个人 AI Agent 的架构演进、落地方法与未来趋势的看法。"
+description: "这段时间做个人 AI 助手的过程的大致记录，以及对个人 AI Agent 的架构演进、落地方法与未来趋势的看法。"
 image: "./cover.jpg"
 tags: ["AI", "Agent", "OpenClaw", "Nanobot"]
 category: "技术洞察"

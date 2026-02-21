@@ -265,18 +265,6 @@ export type PermalinkConfig = {
 	format: string;
 };
 
-// 璇勮閰嶇疆
-
-export type CommentConfig = {
-	enable: boolean; // 鏄惁鍚敤璇勮鍔熻兘
-	twikoo?: TwikooConfig;
-};
-
-type TwikooConfig = {
-	envId: string;
-	region?: string;
-	lang?: string;
-};
 
 export type LIGHT_DARK_MODE = typeof LIGHT_MODE | typeof DARK_MODE;
 

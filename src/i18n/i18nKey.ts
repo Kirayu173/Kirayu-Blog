@@ -22,8 +22,6 @@ enum I18nKey {
 	announcement = "announcement",
 	announcementClose = "announcementClose",
 
-	comments = "comments",
-
 	untitled = "untitled",
 	uncategorized = "uncategorized",
 	noTags = "noTags",
