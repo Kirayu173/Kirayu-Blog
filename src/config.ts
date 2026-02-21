@@ -190,17 +190,17 @@ export const siteConfig: SiteConfig = {
 		asciiFont: {
 			// 閼昏鲸鏋冪€涙ぞ缍?- 娴兼ê鍘涚痪褎娓舵?
 			// 閹稿洤鐣炬稉楦垮閺傚洤鐡ф担鎾冲灟閺冪姾顔戠€涙ぞ缍嬮崠鍛儓婢舵艾銇囬懠鍐ㄦ纯閿涘矂鍏橀崣顏冪窗娣囨繄鏆€ ASCII 鐎涙顑佺€涙劙娉?
-			fontFamily: "ZenMaruGothic-Medium",
+			fontFamily: "",
 			fontWeight: "400",
-			localFonts: ["ZenMaruGothic-Medium.ttf"],
-			enableCompress: true, // 閸氼垳鏁ょ€涙ぞ缍嬬€涙劙娉︽导妯哄閿涘苯鍣虹亸鎴濈摟娴ｆ挻鏋冩禒璺恒亣鐏?
+			localFonts: [],
+			enableCompress: false,
 		},
 		cjkFont: {
 			// 娑擃厽妫╅棅鈺佺摟娴?- 娴ｆ粈璐熼崶鐐衡偓鈧€涙ぞ缍?
-			fontFamily: "萝莉体 第二版",
+			fontFamily: "",
 			fontWeight: "500",
-			localFonts: ["萝莉体 第二版.ttf"],
-			enableCompress: true, // 閸氼垳鏁ょ€涙ぞ缍嬬€涙劙娉︽导妯哄閿涘苯鍣虹亸鎴濈摟娴ｆ挻鏋冩禒璺恒亣鐏?
+			localFonts: [],
+			enableCompress: false,
 		},
 	},
 	showLastModified: true, // 閹貉冨煑閳ユ粈绗傚▎锛勭椽鏉堟垟鈧繂宕遍悧鍥ㄦ▔缁€铏规畱瀵偓閸?
