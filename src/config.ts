@@ -20,6 +20,8 @@ import { LinkPreset } from "./types/config";
 // 鐎规矮绠熺粩娆戝仯鐠囶叀鈻?
 const SITE_LANG = "zh_CN"; // 鐠囶叀鈻堟禒锝囩垳閿涘奔绶ユ俊鍌︾窗'en', 'zh_CN', 'ja' 缁涘鈧?
 const SITE_TIMEZONE = 8; //鐠佸墽鐤嗘担鐘垫畱缂冩垹鐝弮璺哄隘 from -12 to 12 default in UTC+8
+const TWIKOO_ENV_ID =
+	import.meta.env.PUBLIC_TWIKOO_ENV_ID || "https://twikoo.vercel.app";
 export const siteConfig: SiteConfig = {
 	title: "Kirayu-Blog",
 	subtitle: "Maintained by Axis",
@@ -357,9 +359,9 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 };
 
 export const commentConfig: CommentConfig = {
-	enable: false, // 閸氼垳鏁ょ拠鍕啈閸旂喕鍏橀妴鍌氱秼鐠佸墽鐤嗘稉?false 閺冭绱濈拠鍕啈缂佸嫪娆㈢亸鍡曠瑝娴兼碍妯夌粈鍝勬躬閺傚洨鐝烽崠鍝勭厵閵?
+	enable: true, // 閸氼垳鏁ょ拠鍕啈閸旂喕鍏橀妴鍌氱秼鐠佸墽鐤嗘稉?false 閺冭绱濈拠鍕啈缂佸嫪娆㈢亸鍡曠瑝娴兼碍妯夌粈鍝勬躬閺傚洨鐝烽崠鍝勭厵閵?
 	twikoo: {
-		envId: "https://twikoo.vercel.app",
+		envId: TWIKOO_ENV_ID,
 		lang: SITE_LANG,
 	},
 };

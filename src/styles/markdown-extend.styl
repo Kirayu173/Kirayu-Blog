@@ -71,6 +71,10 @@
       &:before
         background: var(--admonitions-color-caution)
 
+    // Avoid overlap when an admonition title is followed directly by a GitHub card.
+    > .bdm-title + a.card-github
+      margin-top: 1rem
+
   img
     border-radius: 0.75rem
 

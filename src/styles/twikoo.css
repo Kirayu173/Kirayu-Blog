@@ -13,6 +13,10 @@ html.dark {
 }
 
 .tk-submit {
+  @apply p-4 rounded-[var(--radius-large)];
+  border: 1px solid rgba(144, 147, 153, 0.24);
+  background: var(--card-bg);
+
   .tk-avatar {
     @apply hidden;
   }
@@ -24,7 +28,9 @@ html.dark {
     @apply flex-col-reverse;
     .tk-input {
       textarea {
-        @apply rounded-[var(--radius-large)] py-4 px-6 !min-h-[150px] focus:border-[var(--primary)];
+        @apply rounded-[var(--radius-large)] py-4 px-6 !min-h-[160px] focus:border-[var(--primary)];
+        border: 1px solid rgba(144, 147, 153, 0.24);
+        background: var(--card-bg);
       }
     }
   }
@@ -32,17 +38,46 @@ html.dark {
 
 /* Meta */
 .tk-meta-input {
-  @apply relative mt-3;
-  div {
-    @apply min-h-10;
-    .el-input-group__prepend {
-      @apply !bg-inherit rounded-l-lg;
-      min-height: inherit;
-    }
-    input {
-      @apply px-4 rounded-r-lg focus:!border-[var(--primary)];
-      min-height: inherit;
-    }
+  @apply relative mt-4;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 320px));
+  gap: 0.75rem;
+  justify-content: start;
+}
+
+.tk-meta-input > div {
+  min-height: 46px;
+}
+
+.tk-meta-input > div .el-input-group__prepend {
+  @apply rounded-l-xl;
+  min-height: inherit;
+  border: 1px solid rgba(144, 147, 153, 0.24);
+  border-right: none;
+  background: var(--btn-plain-bg);
+  color: var(--tk-text);
+  padding: 0 0.9rem;
+}
+
+.tk-meta-input > div input {
+  @apply px-4 rounded-r-xl focus:!border-[var(--primary)];
+  min-height: inherit;
+  border: 1px solid rgba(144, 147, 153, 0.24);
+  background: var(--card-bg);
+  font-size: 0.95rem;
+}
+
+.tk-meta-input > div input::placeholder {
+  opacity: 0.7;
+}
+
+.tk-meta-input > div:nth-child(3) {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .tk-meta-input {
+    grid-template-columns: 1fr;
   }
 }
 
