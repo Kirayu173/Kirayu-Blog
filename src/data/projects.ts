@@ -20,6 +20,20 @@ export interface Project {
 
 export const projectsData: Project[] = [
 	{
+		id: "kirayu-blog",
+		title: "Kirayu-Blog",
+		description: "基于 Astro 与 Mizuki 构建的个人博客站点",
+		image: "",
+		category: "web",
+		techStack: ["Astro", "TypeScript", "Svelte", "Twikoo"],
+		status: "in-progress",
+		startDate: "2025-01-01",
+		sourceCode: "https://github.com/Kirayu173/Kirayu-Blog",
+		visitUrl: "https://github.com/Kirayu173/Kirayu-Blog",
+		featured: true,
+		tags: ["Blog", "Astro", "Mizuki"],
+	},
+	{
 		id: "nano-agentx",
 		title: "nano-agentx",
 		description:
@@ -116,3 +130,4 @@ export const getAllTechStack = () => {
 	});
 	return Array.from(techSet).sort();
 };
+
