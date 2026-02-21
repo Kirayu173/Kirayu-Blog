@@ -1,9 +1,17 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import fs from "node:fs";
+
+const postsBase = fs.existsSync("./content/posts")
+	? "./content/posts"
+	: "./src/content/posts";
+const specBase = fs.existsSync("./content/spec")
+	? "./content/spec"
+	: "./src/content/spec";
 
 const postsCollection = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./content/posts" }),
+	loader: glob({ pattern: "**/*.md", base: postsBase }),
 	schema: z.object({
 		title: z.string(),
 		published: z.date(),
@@ -40,7 +48,7 @@ const postsCollection = defineCollection({
 	}),
 });
 const specCollection = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./content/spec" }),
+	loader: glob({ pattern: "**/*.md", base: specBase }),
 	schema: z.object({}),
 });
 export const collections = {
