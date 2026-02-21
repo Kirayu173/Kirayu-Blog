@@ -146,10 +146,9 @@ export const siteConfig: SiteConfig = {
 			enable: true, // 閸︺劋瀵屾い鍨▔缁€楦垮殰鐎规矮绠熼弬鍥ㄦ拱
 			title: "Kirayu's Lab", // 主页横幅主标题
 			subtitle: [
-				"Some things endure beyond time.",
-				"Time passes. Meaning remains.",
-				"Memory outlives the moment.",
-				"We persist.",
+				"Per aspera ad astra",
+				"循此苦旅，终抵繁星",
+				"Through hardships to the stars",
 			],
 			typewriter: {
 				enable: true, // 閸氼垳鏁ら崜顖涚垼妫版ɑ澧︾€涙婧€閺佸牊鐏?

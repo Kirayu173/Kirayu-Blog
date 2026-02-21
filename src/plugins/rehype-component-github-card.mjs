@@ -62,22 +62,65 @@ export function GithubCardComponent(properties, children) {
 		`script#${cardUuid}-script`,
 		{ type: "text/javascript", defer: true },
 		`
-      fetch('https://api.github.com/repos/${repo}', { referrerPolicy: "no-referrer" }).then(response => response.json()).then(data => {
-        document.getElementById('${cardUuid}-description').innerText = data.description?.replace(/:[a-zA-Z0-9_]+:/g, '') || "Description not set";
-        document.getElementById('${cardUuid}-language').innerText = data.language;
-        document.getElementById('${cardUuid}-forks').innerText = Intl.NumberFormat('en-us', { notation: "compact", maximumFractionDigits: 1 }).format(data.forks).replaceAll("\u202f", '');
-        document.getElementById('${cardUuid}-stars').innerText = Intl.NumberFormat('en-us', { notation: "compact", maximumFractionDigits: 1 }).format(data.stargazers_count).replaceAll("\u202f", '');
-        const avatarEl = document.getElementById('${cardUuid}-avatar');
-        avatarEl.style.backgroundImage = 'url(' + data.owner.avatar_url + ')';
-        avatarEl.style.backgroundColor = 'transparent';
-        document.getElementById('${cardUuid}-license').innerText = data.license?.spdx_id || "no-license";
-        document.getElementById('${cardUuid}-card').classList.remove("fetch-waiting");
-        console.log("[GITHUB-CARD] Loaded card for ${repo} | ${cardUuid}.")
-      }).catch(err => {
-        const c = document.getElementById('${cardUuid}-card');
-        c?.classList.add("fetch-error");
-        console.warn("[GITHUB-CARD] (Error) Loading card for ${repo} | ${cardUuid}.")
-      })
+      const cardEl = document.getElementById('${cardUuid}-card');
+      const descriptionEl = document.getElementById('${cardUuid}-description');
+      const languageEl = document.getElementById('${cardUuid}-language');
+      const forksEl = document.getElementById('${cardUuid}-forks');
+      const starsEl = document.getElementById('${cardUuid}-stars');
+      const licenseEl = document.getElementById('${cardUuid}-license');
+      const avatarEl = document.getElementById('${cardUuid}-avatar');
+
+      const setFetchError = (message) => {
+        if (descriptionEl) descriptionEl.innerText = message;
+        if (languageEl) languageEl.innerText = "unknown";
+        if (forksEl) forksEl.innerText = "-";
+        if (starsEl) starsEl.innerText = "-";
+        if (licenseEl) licenseEl.innerText = "-";
+        cardEl?.classList.remove("fetch-waiting");
+        cardEl?.classList.add("fetch-error");
+      };
+
+      fetch('https://api.github.com/repos/${repo}', { referrerPolicy: "no-referrer" })
+        .then(async (response) => {
+          const data = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            const apiMessage = typeof data?.message === "string" ? data.message : ("HTTP " + response.status);
+            throw new Error(apiMessage);
+          }
+          return data;
+        })
+        .then((data) => {
+          if (descriptionEl) {
+            descriptionEl.innerText = data.description?.replace(/:[a-zA-Z0-9_]+:/g, '') || "Description not set";
+          }
+          if (languageEl) languageEl.innerText = data.language || "unknown";
+          if (forksEl) {
+            forksEl.innerText = Intl.NumberFormat('en-us', { notation: "compact", maximumFractionDigits: 1 })
+              .format(Number(data.forks || 0))
+              .replaceAll("\u202f", '');
+          }
+          if (starsEl) {
+            starsEl.innerText = Intl.NumberFormat('en-us', { notation: "compact", maximumFractionDigits: 1 })
+              .format(Number(data.stargazers_count || 0))
+              .replaceAll("\u202f", '');
+          }
+          if (licenseEl) licenseEl.innerText = data.license?.spdx_id || "no-license";
+
+          if (avatarEl) {
+            const avatarUrl = data?.owner?.avatar_url;
+            if (avatarUrl) {
+              avatarEl.style.backgroundImage = 'url(' + avatarUrl + ')';
+              avatarEl.style.backgroundColor = 'transparent';
+            }
+          }
+
+          cardEl?.classList.remove("fetch-waiting");
+          console.log("[GITHUB-CARD] Loaded card for ${repo} | ${cardUuid}.")
+        })
+        .catch((err) => {
+          setFetchError("GitHub card unavailable (API rate limit / network blocked).");
+          console.warn("[GITHUB-CARD] (Error) Loading card for ${repo} | ${cardUuid}.", err);
+        });
     `,
 	);
 
