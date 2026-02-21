@@ -1,58 +1,58 @@
-<script lang="ts">
+﻿<script lang="ts">
 import Icon from "@iconify/svelte";
 import { onDestroy, onMount } from "svelte";
 import { slide } from "svelte/transition";
-// 从配置文件中导入音乐播放器配置
+// 浠庨厤缃枃浠朵腑瀵煎叆闊充箰鎾斁鍣ㄩ厤缃?
 import { musicPlayerConfig } from "../../config";
-// 导入国际化相关的 Key 和 i18n 实例
+// 瀵煎叆鍥介檯鍖栫浉鍏崇殑 Key 鍜?i18n 瀹炰緥
 import Key from "../../i18n/i18nKey";
 import { i18n } from "../../i18n/translation";
 
-// 音乐播放器模式，可选 "local" 或 "meting"，从本地配置中获取或使用默认值 "meting"
+// 闊充箰鎾斁鍣ㄦā寮忥紝鍙€?"local" 鎴?"meting"锛屼粠鏈湴閰嶇疆涓幏鍙栨垨浣跨敤榛樿鍊?"meting"
 let mode = musicPlayerConfig.mode ?? "meting";
-// Meting API 地址，从配置中获取或使用默认地址(bilibili.uno(由哔哩哔哩松坂有希公益管理)),服务器在海外,部分音乐平台可能不支持并且速度可能慢,也可以自建Meting API
+// Meting API 鍦板潃锛屼粠閰嶇疆涓幏鍙栨垨浣跨敤榛樿鍦板潃(bilibili.uno(鐢卞摂鍝╁摂鍝╂澗鍧傛湁甯屽叕鐩婄鐞?),鏈嶅姟鍣ㄥ湪娴峰,閮ㄥ垎闊充箰骞冲彴鍙兘涓嶆敮鎸佸苟涓旈€熷害鍙兘鎱?涔熷彲浠ヨ嚜寤篗eting API
 let meting_api =
 	musicPlayerConfig.meting_api ??
 	"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r";
-// Meting API 的 ID，从配置中获取或使用默认值
+// Meting API 鐨?ID锛屼粠閰嶇疆涓幏鍙栨垨浣跨敤榛樿鍊?
 let meting_id = musicPlayerConfig.id ?? "14164869977";
-// Meting API 的服务器，从配置中获取或使用默认值,有的meting的api源支持更多平台,一般来说,netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
+// Meting API 鐨勬湇鍔″櫒锛屼粠閰嶇疆涓幏鍙栨垨浣跨敤榛樿鍊?鏈夌殑meting鐨刟pi婧愭敮鎸佹洿澶氬钩鍙?涓€鑸潵璇?netease=缃戞槗浜戦煶涔? tencent=QQ闊充箰, kugou=閰风嫍闊充箰, xiami=铏剧背闊充箰, baidu=鐧惧害闊充箰
 let meting_server = musicPlayerConfig.server ?? "netease";
-// Meting API 的类型，从配置中获取或使用默认值
+// Meting API 鐨勭被鍨嬶紝浠庨厤缃腑鑾峰彇鎴栦娇鐢ㄩ粯璁ゅ€?
 let meting_type = musicPlayerConfig.type ?? "playlist";
 
-// 播放状态，默认为 false (未播放)
+// 鎾斁鐘舵€侊紝榛樿涓?false (鏈挱鏀?
 let isPlaying = false;
-// 播放器是否展开，默认为 false
+// 鎾斁鍣ㄦ槸鍚﹀睍寮€锛岄粯璁や负 false
 let isExpanded = false;
-// 播放器是否隐藏，默认为 false
+// 鎾斁鍣ㄦ槸鍚﹂殣钘忥紝榛樿涓?false
 let isHidden = false;
-// 是否显示播放列表，默认为 false
+// 鏄惁鏄剧ず鎾斁鍒楄〃锛岄粯璁や负 false
 let showPlaylist = false;
-// 当前播放时间，默认为 0
+// 褰撳墠鎾斁鏃堕棿锛岄粯璁や负 0
 let currentTime = 0;
-// 歌曲总时长，默认为 0
+// 姝屾洸鎬绘椂闀匡紝榛樿涓?0
 let duration = 0;
 
-// localStorage 存储音量
+// localStorage 瀛樺偍闊抽噺
 const STORAGE_KEY_VOLUME = 'music-player-volume';
 
-// 音量，默认为 0.7
+// 闊抽噺锛岄粯璁や负 0.7
 let volume = 0.7;
-// 是否静音，默认为 false
+// 鏄惁闈欓煶锛岄粯璁や负 false
 let isMuted = false;
-// 是否正在加载，默认为 false
+// 鏄惁姝ｅ湪鍔犺浇锛岄粯璁や负 false
 let isLoading = false;
-// 是否随机播放，默认为 false
+// 鏄惁闅忔満鎾斁锛岄粯璁や负 false
 let isShuffled = false;
-// 循环模式，0: 不循环, 1: 单曲循环, 2: 列表循环，默认为 0
+// 寰幆妯″紡锛?: 涓嶅惊鐜? 1: 鍗曟洸寰幆, 2: 鍒楄〃寰幆锛岄粯璁や负 0
 let isRepeating = 0;
-// 错误信息，默认为空字符串
+// 閿欒淇℃伅锛岄粯璁や负绌哄瓧绗︿覆
 let errorMessage = "";
-// 是否显示错误信息，默认为 false
+// 鏄惁鏄剧ず閿欒淇℃伅锛岄粯璁や负 false
 let showError = false;
 
-// 当前歌曲信息
+// 褰撳墠姝屾洸淇℃伅
 let currentSong = {
 	title: "Sample Song",
 	artist: "Sample Artist",
@@ -79,31 +79,63 @@ let volumeBar: HTMLElement;
 const localPlaylist = [
 	{
 		id: 1,
-		title: "ひとり上手",
-		artist: "Kaya",
-		cover: "assets/music/cover/hitori.jpg",
-		url: "assets/music/url/hitori.mp3",
-		duration: 240,
+		title: "Fuyubiyori",
+		artist: "Eri Sasaki",
+		cover: "assets/music/cover/fuyubiyori.jpg",
+		url: "assets/music/url/fuyubiyori.flac",
+		duration: 0,
 	},
 	{
 		id: 2,
-		title: "眩耀夜行",
-		artist: "スリーズブーケ",
-		cover: "assets/music/cover/xryx.jpg",
-		url: "assets/music/url/xryx.mp3",
-		duration: 180,
+		title: "SHINY DAYS",
+		artist: "Asaka",
+		cover: "assets/music/cover/shiny-days.jpg",
+		url: "assets/music/url/shiny-days.flac",
+		duration: 0,
 	},
 	{
 		id: 3,
-		title: "春雷の頃",
-		artist: "22/7",
-		cover: "assets/music/cover/cl.jpg",
-		url: "assets/music/url/cl.mp3",
-		duration: 200,
+		title: "Haru no Tonari",
+		artist: "Eri Sasaki",
+		cover: "assets/music/cover/haru-no-tonari.jpg",
+		url: "assets/music/url/haru-no-tonari.flac",
+		duration: 0,
+	},
+	{
+		id: 4,
+		title: "Seize The Day",
+		artist: "Asaka",
+		cover: "assets/music/cover/seize-the-day.png",
+		url: "assets/music/url/seize-the-day.flac",
+		duration: 0,
+	},
+	{
+		id: 5,
+		title: "So Precious",
+		artist: "Asaka",
+		cover: "assets/music/cover/so-precious.jpg",
+		url: "assets/music/url/so-precious.flac",
+		duration: 0,
+	},
+	{
+		id: 6,
+		title: "Laid-Back Journey (Off Vocal)",
+		artist: "Yuru Camp",
+		cover: "assets/music/cover/laid-back-journey-off-vocal.jpg",
+		url: "assets/music/url/laid-back-journey-off-vocal.flac",
+		duration: 0,
+	},
+	{
+		id: 7,
+		artist: "Asaka",
+		title: "The Sunshower",
+		cover: "assets/music/cover/the-sunshower.jpg",
+		url: "assets/music/url/the-sunshower.flac",
+		duration: 0,
 	},
 ];
 
-// 从localStorage加载音量设置
+// 浠巐ocalStorage鍔犺浇闊抽噺璁剧疆
 function loadVolumeSettings() {
 	try {
 		if (typeof localStorage !== 'undefined') {
@@ -116,7 +148,7 @@ function loadVolumeSettings() {
 		console.warn('Failed to load volume settings from localStorage:', e);
 	}
 }
-// 保存音量设置到localStorage
+// 淇濆瓨闊抽噺璁剧疆鍒發ocalStorage
 function saveVolumeSettings() {
 	try {
 		if (typeof localStorage !== 'undefined') {
@@ -228,7 +260,7 @@ function nextSong(autoPlay: boolean = true) {
 	playSong(newIndex, autoPlay);
 }
 
-// 记录切歌时的播放意图，用于解决加载失败时的状态传递问题
+// 璁板綍鍒囨瓕鏃剁殑鎾斁鎰忓浘锛岀敤浜庤В鍐冲姞杞藉け璐ユ椂鐨勭姸鎬佷紶閫掗棶棰?
 let willAutoPlay = false;
 
 function playSong(index: number, autoPlay = true) {
@@ -257,7 +289,7 @@ function loadSong(song: typeof currentSong) {
 	}
 }
 
-// 标记是否因浏览器策略导致自动播放失败
+// 鏍囪鏄惁鍥犳祻瑙堝櫒绛栫暐瀵艰嚧鑷姩鎾斁澶辫触
 let autoplayFailed = false;
 
 function handleLoadSuccess() {
@@ -272,7 +304,7 @@ function handleLoadSuccess() {
         const playPromise = audio.play();
 		if (playPromise !== undefined) {
             playPromise.catch((error) => {
-                console.warn("自动播放被拦截，等待用户交互:", error);
+                console.warn("鑷姩鎾斁琚嫤鎴紝绛夊緟鐢ㄦ埛浜や簰:", error);
                 autoplayFailed = true;
 				isPlaying = false;
             });
@@ -420,12 +452,12 @@ onMount(() => {
 	if (mode === "meting") {
 		fetchMetingPlaylist();
 	} else {
-		// 使用本地播放列表，不发送任何API请求
+		// 浣跨敤鏈湴鎾斁鍒楄〃锛屼笉鍙戦€佷换浣旳PI璇锋眰
 		playlist = [...localPlaylist];
 		if (playlist.length > 0) {
 			loadSong(playlist[0]);
 		} else {
-			showErrorMessage("本地播放列表为空");
+			showErrorMessage("鏈湴鎾斁鍒楄〃涓虹┖");
 		}
 	}
 });
@@ -476,7 +508,7 @@ onDestroy(() => {
      class:expanded={isExpanded}
      class:hidden-mode={isHidden}>
 
-    <!-- 隐藏状态的小圆球 -->
+    <!-- 闅愯棌鐘舵€佺殑灏忓渾鐞?-->
     <div class="orb-player w-12 h-12 bg-[var(--primary)] rounded-full shadow-lg cursor-pointer transition-all duration-500 ease-in-out flex items-center justify-center hover:scale-110 active:scale-95"
          class:opacity-0={!isHidden}
          class:scale-0={!isHidden}
@@ -503,13 +535,13 @@ onDestroy(() => {
             <Icon icon="material-symbols:music-note" class="text-white text-lg" />
         {/if}
     </div>
-    <!-- 收缩状态的迷你播放器（封面圆形） -->
+    <!-- 鏀剁缉鐘舵€佺殑杩蜂綘鎾斁鍣紙灏侀潰鍦嗗舰锛?-->
     <div class="mini-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-3 transition-all duration-500 ease-in-out"
          class:opacity-0={isExpanded || isHidden}
          class:scale-95={isExpanded || isHidden}
          class:pointer-events-none={isExpanded || isHidden}>
         <div class="flex items-center gap-3">
-            <!-- 封面区域：点击控制播放/暂停 -->
+            <!-- 灏侀潰鍖哄煙锛氱偣鍑绘帶鍒舵挱鏀?鏆傚仠 -->
             <div class="cover-container relative w-12 h-12 rounded-full overflow-hidden cursor-pointer"
                  on:click={togglePlay}
                  on:keydown={(e) => {
@@ -535,7 +567,7 @@ onDestroy(() => {
                     {/if}
                 </div>
             </div>
-            <!-- 歌曲信息区域：点击展开播放器 -->
+            <!-- 姝屾洸淇℃伅鍖哄煙锛氱偣鍑诲睍寮€鎾斁鍣?-->
             <div class="flex-1 min-w-0 cursor-pointer"
                  on:click={toggleExpanded}
                  on:keydown={(e) => {
@@ -563,7 +595,7 @@ onDestroy(() => {
             </div>
         </div>
     </div>
-    <!-- 展开状态的完整播放器（封面圆形） -->
+    <!-- 灞曞紑鐘舵€佺殑瀹屾暣鎾斁鍣紙灏侀潰鍦嗗舰锛?-->
     <div class="expanded-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-4 transition-all duration-500 ease-in-out"
          class:opacity-0={!isExpanded}
          class:scale-95={!isExpanded}
@@ -722,7 +754,7 @@ onDestroy(() => {
                          }}
                          role="button"
                          tabindex="0"
-                         aria-label="播放 {song.title} - {song.artist}">
+                         aria-label="鎾斁 {song.title} - {song.artist}">
                         <div class="w-6 h-6 flex items-center justify-center">
                             {#if index === currentIndex && isPlaying}
                                 <Icon icon="material-symbols:graphic-eq" class="text-[var(--primary)] animate-pulse" />
@@ -906,7 +938,7 @@ onDestroy(() => {
         height: 12px;
 	}
 }
-/* 自定义旋转动画，停止时保持当前位置 */
+/* 鑷畾涔夋棆杞姩鐢伙紝鍋滄鏃朵繚鎸佸綋鍓嶄綅缃?*/
 @keyframes spin-continuous {
     from {
         transform: rotate(0deg);
@@ -925,10 +957,11 @@ onDestroy(() => {
     animation-play-state: running;
 }
 
-/* 让主题色按钮更有视觉反馈 */
+/* 璁╀富棰樿壊鎸夐挳鏇存湁瑙嗚鍙嶉 */
 button.bg-\[var\(--primary\)\] {
     box-shadow: 0 0 0 2px var(--primary);
 	border: none;
 }
 </style>
 {/if}
+

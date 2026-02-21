@@ -148,10 +148,8 @@ export const siteConfig: SiteConfig = {
 			subtitle: [
 				"Some things endure beyond time.",
 				"Time passes. Meaning remains.",
-				"What is built with purpose does not fade.",
 				"Memory outlives the moment.",
 				"We persist.",
-				"Ever ready.",
 			],
 			typewriter: {
 				enable: true, // 閸氼垳鏁ら崜顖涚垼妫版ɑ澧︾€涙婧€閺佸牊鐏?
@@ -373,7 +371,7 @@ export const shareConfig: ShareConfig = {
 
 export const musicPlayerConfig: MusicPlayerConfig = {
 	enable: true, // 閸氼垳鏁ら棅鍏呯閹绢厽鏂侀崳銊ュ閼?
-	mode: "meting", // 闂婂厖绠伴幘顓熸杹閸ｃ劍膩瀵骏绱濋崣顖炩偓?"local" 閹?"meting"
+	mode: "local", // 闂婂厖绠伴幘顓熸杹閸ｃ劍膩瀵骏绱濋崣顖炩偓?"local" 閹?"meting"
 	meting_api:
 		"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 閸︽澘娼?
 	id: "14164869977", // 濮濆苯宕烮D

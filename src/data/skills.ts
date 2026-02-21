@@ -51,6 +51,19 @@ export const skillsData: Skill[] = [
 		color: "#ED8B00",
 	},
 	{
+		id: "kotlin",
+		name: "Kotlin",
+		description: "一种现代且成熟的编程语言，旨在让开发者更高效。",
+		icon: "logos:kotlin-icon",
+		category: "frontend",
+		level: "beginner",
+		experience: {
+			years: 0,
+			months: 3,
+		},
+		color: "#7F52FF",
+	},
+	{
 		id: "langchain-langgraph",
 		name: "LangChain/LangGraph",
 		description: "用于构建由 LLM 驱动、具备状态与持久性的智能体应用框架。",
