@@ -79,22 +79,6 @@ let volumeBar: HTMLElement;
 const localPlaylist = [
 	{
 		id: 1,
-		title: "Fuyubiyori",
-		artist: "Eri Sasaki",
-		cover: "assets/music/cover/fuyubiyori.jpg",
-		url: "assets/music/url/fuyubiyori.flac",
-		duration: 0,
-	},
-	{
-		id: 2,
-		title: "SHINY DAYS",
-		artist: "Asaka",
-		cover: "assets/music/cover/shiny-days.jpg",
-		url: "assets/music/url/shiny-days.flac",
-		duration: 0,
-	},
-	{
-		id: 3,
 		title: "Haru no Tonari",
 		artist: "Eri Sasaki",
 		cover: "assets/music/cover/haru-no-tonari.jpg",
@@ -102,15 +86,7 @@ const localPlaylist = [
 		duration: 0,
 	},
 	{
-		id: 4,
-		title: "Seize The Day",
-		artist: "Asaka",
-		cover: "assets/music/cover/seize-the-day.png",
-		url: "assets/music/url/seize-the-day.flac",
-		duration: 0,
-	},
-	{
-		id: 5,
+		id: 2,
 		title: "So Precious",
 		artist: "Asaka",
 		cover: "assets/music/cover/so-precious.jpg",
@@ -118,19 +94,11 @@ const localPlaylist = [
 		duration: 0,
 	},
 	{
-		id: 6,
+		id: 3,
 		title: "Laid-Back Journey (Off Vocal)",
 		artist: "Yuru Camp",
 		cover: "assets/music/cover/laid-back-journey-off-vocal.jpg",
 		url: "assets/music/url/laid-back-journey-off-vocal.flac",
-		duration: 0,
-	},
-	{
-		id: 7,
-		artist: "Asaka",
-		title: "The Sunshower",
-		cover: "assets/music/cover/the-sunshower.jpg",
-		url: "assets/music/url/the-sunshower.flac",
 		duration: 0,
 	},
 ];
