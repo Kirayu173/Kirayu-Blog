@@ -30,7 +30,6 @@ export const projectsData: Project[] = [
 		startDate: "2025-01-01",
 		sourceCode: "https://github.com/Kirayu173/Kirayu-Blog",
 		visitUrl: "https://github.com/Kirayu173/Kirayu-Blog",
-		featured: true,
 		tags: ["Blog", "Astro", "Mizuki"],
 	},
 	{
@@ -49,6 +48,27 @@ export const projectsData: Project[] = [
 		tags: ["AI Agent", "轻量框架", "个人助手"],
 	},
 	{
+		id: "kernelmind",
+		title: "KernelMind",
+		description:
+			"基于 CompArch RAG Agent 的优化版本，聚焦检索链路优化、首 token 延迟降低、检索质量提升，并构建完整且美观的可视化界面。",
+		image: "",
+		category: "ai",
+		techStack: [
+			"Python",
+			"RAG",
+			"Knowledge Graph",
+			"Agent",
+			"Visualization",
+		],
+		status: "in-progress",
+		startDate: "2026-02-22",
+		sourceCode: "https://github.com/Kirayu173/KernelMind",
+		visitUrl: "https://github.com/Kirayu173/KernelMind",
+		featured: true,
+		tags: ["RAG", "检索优化", "低延迟", "可视化"],
+	},
+	{
 		id: "comparch-rag-agent",
 		title: "CompArch RAG Agent",
 		description:
@@ -56,11 +76,10 @@ export const projectsData: Project[] = [
 		image: "",
 		category: "ai",
 		techStack: ["Python", "RAG", "Knowledge Graph", "Agent"],
-		status: "in-progress",
+		status: "completed",
 		startDate: "2024-06-15",
 		sourceCode: "https://github.com/Kirayu173/comparch-rag-agent",
 		visitUrl: "https://github.com/Kirayu173/comparch-rag-agent",
-		featured: true,
 		tags: ["RAG", "知识图谱", "AI Agent"],
 	},
 	{
@@ -82,6 +101,7 @@ export const projectsData: Project[] = [
 		startDate: "2026-01-06",
 		sourceCode: "https://github.com/Kirayu173/SmartTrip",
 		visitUrl: "https://github.com/Kirayu173/SmartTrip",
+		featured: true,
 		tags: ["智能旅游", "行程规划", "Android", "AI Agent"],
 	},
 ];
@@ -130,4 +150,3 @@ export const getAllTechStack = () => {
 	});
 	return Array.from(techSet).sort();
 };
-
