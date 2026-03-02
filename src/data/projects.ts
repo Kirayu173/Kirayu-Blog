@@ -48,27 +48,6 @@ export const projectsData: Project[] = [
 		tags: ["AI Agent", "轻量框架", "个人助手"],
 	},
 	{
-		id: "kernelmind",
-		title: "KernelMind",
-		description:
-			"基于 CompArch RAG Agent 的优化版本，聚焦检索链路优化、首 token 延迟降低、检索质量提升，并构建完整且美观的可视化界面。",
-		image: "",
-		category: "ai",
-		techStack: [
-			"Python",
-			"RAG",
-			"Knowledge Graph",
-			"Agent",
-			"Visualization",
-		],
-		status: "in-progress",
-		startDate: "2026-02-22",
-		sourceCode: "https://github.com/Kirayu173/KernelMind",
-		visitUrl: "https://github.com/Kirayu173/KernelMind",
-		featured: true,
-		tags: ["RAG", "检索优化", "低延迟", "可视化"],
-	},
-	{
 		id: "comparch-rag-agent",
 		title: "CompArch RAG Agent",
 		description:
